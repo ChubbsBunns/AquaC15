@@ -93,6 +93,8 @@ public class Friend_AI : MonoBehaviour
 
     public void Caught()
     {
+        SpeakerManager.instance.Speak(4);
+        SpeakerManager.instance.StopSpeak();
         caught = true;
         targets.Clear();
     }

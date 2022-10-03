@@ -267,6 +267,7 @@ MonoBehaviour:
   move: 0
   timeToWaitToMove: 0
   maxPoint: 0
+  followPlayer: 1
   rb: {fileID: 0}
   facingRight: 0
   damageIDealToPlayer: 0
@@ -425,6 +426,7 @@ MonoBehaviour:
   move: 0
   timeToWaitToMove: 0
   maxPoint: 0
+  followPlayer: 1
   rb: {fileID: 0}
   facingRight: 0
   damageIDealToPlayer: 0
@@ -27522,6 +27524,7 @@ MonoBehaviour:
   move: 0
   timeToWaitToMove: 0
   maxPoint: 0
+  followPlayer: 1
   rb: {fileID: 0}
   facingRight: 0
   damageIDealToPlayer: 0

@@ -14,6 +14,8 @@ public class CircleMovement : MonoBehaviour
 
     public int maxPoint;
 
+    public bool followPlayer = false;
+
     public Rigidbody2D rb;
 
     [SerializeField] bool facingRight = false;
@@ -27,7 +29,13 @@ public class CircleMovement : MonoBehaviour
 
     void Start()
     {
-        
+        if (followPlayer)
+        {
+            Player_Controller_1 player = FindObjectOfType<Player_Controller_1>();
+            patrolPoints[1] = player.transform;
+        }
+
+
         maxPoint = patrolPoints.Length;
         rb = GetComponent<Rigidbody2D>();
         //StartCoroutine(NowYouMove());

@@ -57,22 +57,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CreiddyIntro.cs" />
-    <Compile Include="Assets\Scripts\Friend_Caught.cs" />
-    <Compile Include="Assets\Scripts\Friend_AI.cs" />
-    <Compile Include="Assets\Scripts\AI_Start.cs" />
     <Compile Include="Assets\Scripts\Cinemachine_Editor.cs" />
     <Compile Include="Assets\Scripts\Game_Management_Logs.cs" />
     <Compile Include="Assets\Scripts\Player_Controller_1.cs" />
-    <Compile Include="Assets\Scripts\AI_Stop.cs" />
-    <Compile Include="Assets\Scripts\AIJump.cs" />
-    <Compile Include="Assets\Scripts\AI_SetDrag.cs" />
     <Compile Include="Assets\Scripts\portal.cs" />
     <Compile Include="Assets\BringSomeLightning.cs" />
     <Compile Include="Assets\Scripts\Enemy_Health.cs" />
     <Compile Include="Assets\Scripts\Player_Sword.cs" />
     <Compile Include="Assets\Scripts\Sword.cs" />
     <Compile Include="Assets\Scripts\Intro_Trigger_Point.cs" />
+    <Compile Include="Assets\Scripts\AI_SetDrag.cs" />
+    <Compile Include="Assets\Scripts\AIJump.cs" />
+    <Compile Include="Assets\Scripts\Friend_Caught.cs" />
     <Compile Include="Assets\Scripts\SpeakerManager.cs" />
+    <Compile Include="Assets\Scripts\Friend_AI.cs" />
+    <Compile Include="Assets\Scripts\AI_Start.cs" />
+    <Compile Include="Assets\Scripts\AI_Stop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiles\Pixel2DCastleTileset\about.txt" />
@@ -327,9 +327,6 @@
     <Reference Include="Unity.Burst.Cecil.Mdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll</HintPath>
     </Reference>
-    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst.Cecil.Pdb">
       <HintPath>Library\PackageCache\com.unity.burst@1.7.3\Unity.Burst.CodeGen\Unity.Burst.Cecil.Pdb.dll</HintPath>
     </Reference>
@@ -344,6 +341,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.9f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -884,10 +884,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{A0646A8C-3050-9041-F3AD-CCC7630072F8}</Project>
-      <Name>PackageToolsEditor</Name>
-    </ProjectReference>
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
       <Project>{77DAEBED-014B-1BC2-0102-E658DB075A49}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
@@ -895,6 +891,10 @@
     <ProjectReference Include="AstarPathfindingProject.csproj">
       <Project>{21A60844-64FE-42C4-F0E1-960D7F697EA8}</Project>
       <Name>AstarPathfindingProject</Name>
+    </ProjectReference>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{A0646A8C-3050-9041-F3AD-CCC7630072F8}</Project>
+      <Name>PackageToolsEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

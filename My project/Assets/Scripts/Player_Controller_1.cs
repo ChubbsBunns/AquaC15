@@ -5,14 +5,17 @@ using UnityEngine;
 public class Player_Controller_1 : MonoBehaviour
 {
     [Header("Player States")]
-    public bool is_jumping;
-    public bool is_dashing;
-    public bool player_is_controllable;
-    public bool is_airborne;
+    public bool is_jumping = false;
+    public bool is_dashing = false;
+    public bool player_is_controllable = false;
+    public bool is_airborne = false;
+    public bool is_running = false;
 
     [Header("Horizontal Movement")]
     public float current_Speed;
     public bool facing_Right;
+
+    public int prev_horizontal_input = 0;
 
     public float time_from_zero_to_max_horizontal_speed = 0.3f;
     public float max_horizontal_speed;
@@ -97,7 +100,7 @@ public class Player_Controller_1 : MonoBehaviour
         }
         else
         {
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -121,6 +124,8 @@ public class Player_Controller_1 : MonoBehaviour
         {
             Debug.LogError("Why ah");
         }
+
+
     }
 
     // Update is called once per frame
@@ -161,7 +166,11 @@ public class Player_Controller_1 : MonoBehaviour
     {
         horizontal_Input = (int)Input.GetAxisRaw("Horizontal");
 
-        if (Mathf.Abs(horizontal_Input) > 0)
+        Debug.Log("is_grounded is " + is_grounded);
+        Debug.Log("is_airborne is " + is_airborne);
+        Debug.Log("Math.Abs(horizontal_Input is " + Mathf.Abs(horizontal_Input));
+
+        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || is_running || is_jumping || is_dashing )
         {
             current_Speed += acceleration * Time.deltaTime;
             if (is_grounded == true && is_airborne == false)
@@ -206,7 +215,6 @@ public class Player_Controller_1 : MonoBehaviour
         {
             if (Input.GetButton("Jump") && cant_jump_anymore == false)
             {
-
                 is_jumping = true;
                 Nu_Anim.SetBool("Jump1", true);
                 StartCoroutine(Jump_Anim_Helper());
@@ -398,6 +406,13 @@ public class Player_Controller_1 : MonoBehaviour
         yield return new WaitForSeconds(time_between_attacks);
         able_to_attack = true;
     }
+
+    //PORTAL MANAGEMENT
+    public void TransformChangeMoveMeHere(Transform myNewPosition)
+    {
+        transform.position = myNewPosition.position;
+    }
+
     //MATH HELPER FUNCTIONS
 
     public float Calculate_Distance_Vector2(Vector2 vector2)
@@ -411,6 +426,10 @@ public class Player_Controller_1 : MonoBehaviour
     {
         return value * value;
     }
+
+    
+
+
 
     //end of class
 }

@@ -57,13 +57,14 @@ namespace Pathfinding {
 		/// If a partial path is found, CompleteState is set to Partial.
 		/// Note: It is not required by other path types to respect this setting
 		///
-		/// The <see cref="endNode"/> and <see cref="endPoint"/> will be modified and be set to the node which ends up being closest to the target.
+		/// Warning: This feature is currently a work in progress and may not work in the current version
 		/// </summary>
 		public bool calculatePartial;
 
 		/// <summary>
 		/// Current best target for the partial path.
 		/// This is the node with the lowest H score.
+		/// Warning: This feature is currently a work in progress and may not work in the current version
 		/// </summary>
 		protected PathNode partialBestTarget;
 
@@ -176,7 +177,7 @@ namespace Pathfinding {
 			hTarget = (Int3)end;
 		}
 
-		public override uint GetConnectionSpecialCost (GraphNode a, GraphNode b, uint currentCost) {
+		internal override uint GetConnectionSpecialCost (GraphNode a, GraphNode b, uint currentCost) {
 			if (startNode != null && endNode != null) {
 				if (a == startNode) {
 					return (uint)((startIntPoint - (b == endNode ? hTarget : b.position)).costMagnitude * (currentCost*1.0/(a.position-b.position).costMagnitude));
@@ -501,9 +502,10 @@ namespace Pathfinding {
 			// Any nodes left to search?
 			if (pathHandler.heap.isEmpty) {
 				if (calculatePartial) {
-					CompletePartial(partialBestTarget);
+					CompleteState = PathCompleteState.Partial;
+					Trace(partialBestTarget);
 				} else {
-					FailWithError("The start node either had no neighbours, or no neighbours that the path could traverse");
+					FailWithError("No open points, the start node didn't open any nodes");
 				}
 				return;
 			}
@@ -542,13 +544,6 @@ namespace Pathfinding {
 				SetFlagOnSurroundingGridNodes(gridSpecialCaseNode, 2, false);
 			}
 #endif
-		}
-
-		void CompletePartial (PathNode node) {
-			CompleteState = PathCompleteState.Partial;
-			endNode = node.node;
-			endPoint = endNode.ClosestPointOnNode(originalEndPoint);
-			Trace(node);
 		}
 
 		/// <summary>
@@ -639,9 +634,10 @@ namespace Pathfinding {
 				// Any nodes left to search?
 				if (pathHandler.heap.isEmpty) {
 					if (calculatePartial && partialBestTarget != null) {
-						CompletePartial(partialBestTarget);
+						CompleteState = PathCompleteState.Partial;
+						Trace(partialBestTarget);
 					} else {
-						FailWithError("Searched all reachable nodes, but could not find target. This can happen if you have nodes with a different tag blocking the way to the goal. You can enable path.calculatePartial to handle that case workaround (though this comes with a performance cost).");
+						FailWithError("Searched whole area but could not find target");
 					}
 					return;
 				}
@@ -674,14 +670,15 @@ namespace Pathfinding {
 			if (CompleteState == PathCompleteState.Complete) {
 				Trace(currentR);
 			} else if (calculatePartial && partialBestTarget != null) {
-				CompletePartial(partialBestTarget);
+				CompleteState = PathCompleteState.Partial;
+				Trace(partialBestTarget);
 			}
 
 			AstarProfiler.EndProfile();
 		}
 
 		/// <summary>Returns a debug string for this path.</summary>
-		protected override string DebugString (PathLog logMode) {
+		internal override string DebugString (PathLog logMode) {
 			if (logMode == PathLog.None || (!error && logMode == PathLog.OnlyErrors)) {
 				return "";
 			}

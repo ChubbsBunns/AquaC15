@@ -22,12 +22,6 @@ namespace Pathfinding {
 			_gridGraphs[graphIndex] = graph;
 		}
 
-		public static void ClearGridGraph (int graphIndex, GridGraph graph) {
-			if (graphIndex < _gridGraphs.Length && _gridGraphs[graphIndex] == graph) {
-				_gridGraphs[graphIndex] = null;
-			}
-		}
-
 		/// <summary>Internal use only</summary>
 		internal ushort InternalGridFlags {
 			get { return gridFlags; }
@@ -172,7 +166,7 @@ namespace Pathfinding {
 #endif
 		}
 
-		public override Vector3 ClosestPointOnNode (Vector3 p) {
+		public Vector3 ClosestPointOnNode (Vector3 p) {
 			var gg = GetGridGraph(GraphIndex);
 
 			// Convert to graph space

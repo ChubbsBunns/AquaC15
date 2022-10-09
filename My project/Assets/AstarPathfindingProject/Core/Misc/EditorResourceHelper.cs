@@ -18,7 +18,6 @@ namespace Pathfinding {
 		}
 
 		static Material surfaceMat, lineMat;
-		static Texture2D handlesAALineTex;
 		public static Material GizmoSurfaceMaterial {
 			get {
 				if (!surfaceMat) surfaceMat = UnityEditor.AssetDatabase.LoadAssetAtPath(EditorResourceHelper.editorAssets + "/Materials/Navmesh.mat", typeof(Material)) as Material;
@@ -30,13 +29,6 @@ namespace Pathfinding {
 			get {
 				if (!lineMat) lineMat = UnityEditor.AssetDatabase.LoadAssetAtPath(EditorResourceHelper.editorAssets + "/Materials/NavmeshOutline.mat", typeof(Material)) as Material;
 				return lineMat;
-			}
-		}
-
-		public static Texture2D HandlesAALineTexture {
-			get {
-				if (!handlesAALineTex) handlesAALineTex = Resources.Load<Texture2D>("handles_aaline");
-				return handlesAALineTex;
 			}
 		}
 

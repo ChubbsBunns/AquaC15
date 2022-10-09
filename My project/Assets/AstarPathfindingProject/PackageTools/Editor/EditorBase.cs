@@ -120,7 +120,9 @@ namespace Pathfinding {
 		}
 
 		protected SerializedProperty FindProperty (string name) {
-			if (!props.TryGetValue(name, out SerializedProperty res)) res = props[name] = serializedObject.FindProperty(name);
+			SerializedProperty res;
+
+			if (!props.TryGetValue(name, out res)) res = props[name] = serializedObject.FindProperty(name);
 			if (res == null) throw new System.ArgumentException(name);
 			return res;
 		}
@@ -133,11 +135,6 @@ namespace Pathfinding {
 		protected void FloatField (string propertyPath, string label = null, string tooltip = null, float min = float.NegativeInfinity, float max = float.PositiveInfinity) {
 			PropertyField(propertyPath, label, tooltip);
 			Clamp(propertyPath, min, max);
-		}
-
-		protected void FloatField (SerializedProperty prop, string label = null, string tooltip = null, float min = float.NegativeInfinity, float max = float.PositiveInfinity) {
-			PropertyField(prop, label, tooltip);
-			Clamp(prop, min, max);
 		}
 
 		protected bool PropertyField (string propertyPath, string label = null, string tooltip = null) {
@@ -159,10 +156,7 @@ namespace Pathfinding {
 		}
 
 		bool IsContextClick () {
-			// Capturing context clicks turned out to be a bad idea.
-			// It prevents things like reverting to prefab values and other nice things.
-			return false;
-			// return Event.current.type == EventType.ContextClick;
+			return Event.current.type == EventType.ContextClick;
 		}
 
 		void CaptureContextClick (string propertyPath) {
@@ -219,22 +213,10 @@ namespace Pathfinding {
 			if (contextClick && Event.current.type == EventType.Used) CaptureContextClick(propertyPath);
 		}
 
-		protected void Slider (string propertyPath, float left, float right) {
-			var contextClick = IsContextClick();
-			var prop = FindProperty(propertyPath);
-
-			content.text = prop.displayName;
-			content.tooltip = FindTooltip(propertyPath);
-			EditorGUILayout.Slider(prop, left, right, content, noOptions);
-			if (contextClick && Event.current.type == EventType.Used) CaptureContextClick(propertyPath);
-		}
-
-		protected void Clamp (SerializedProperty prop, float min, float max = float.PositiveInfinity) {
-			if (!prop.hasMultipleDifferentValues) prop.floatValue = Mathf.Clamp(prop.floatValue, min, max);
-		}
-
 		protected void Clamp (string name, float min, float max = float.PositiveInfinity) {
-			Clamp(FindProperty(name), min, max);
+			var prop = FindProperty(name);
+
+			if (!prop.hasMultipleDifferentValues) prop.floatValue = Mathf.Clamp(prop.floatValue, min, max);
 		}
 
 		protected void ClampInt (string name, int min, int max = int.MaxValue) {

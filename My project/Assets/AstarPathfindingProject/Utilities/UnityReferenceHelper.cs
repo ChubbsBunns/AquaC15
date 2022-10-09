@@ -23,14 +23,12 @@ namespace Pathfinding {
 		public void Reset () {
 			if (string.IsNullOrEmpty(guid)) {
 				guid = Pathfinding.Util.Guid.NewGuid().ToString();
-				Debug.Log("Created new GUID - " + guid, this);
-			} else if (gameObject.scene.name != null) {
-				// Create a new GUID if there are duplicates in the scene.
-				// Don't do this if this is a prefab (scene.name == null)
+				Debug.Log("Created new GUID - "+guid);
+			} else {
 				foreach (UnityReferenceHelper urh in FindObjectsOfType(typeof(UnityReferenceHelper)) as UnityReferenceHelper[]) {
 					if (urh != this && guid == urh.guid) {
 						guid = Pathfinding.Util.Guid.NewGuid().ToString();
-						Debug.Log("Created new GUID - " + guid, this);
+						Debug.Log("Created new GUID - "+guid);
 						return;
 					}
 				}

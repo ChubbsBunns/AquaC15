@@ -133,9 +133,6 @@ namespace Pathfinding {
 
 				EditorGUILayout.EndHorizontal();
 			}
-
-			// Make sure we don't leak any memory
-			scripts.Clear();
 		}
 	}
 }

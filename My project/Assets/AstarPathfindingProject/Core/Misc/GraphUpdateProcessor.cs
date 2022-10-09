@@ -136,11 +136,6 @@ namespace Pathfinding {
 		void QueueGraphUpdatesInternal () {
 			while (graphUpdateQueue.Count > 0) {
 				GraphUpdateObject ob = graphUpdateQueue.Dequeue();
-				if (ob.internalStage != GraphUpdateObject.STAGE_PENDING) {
-					Debug.LogError("Expected remaining graph updates to be pending");
-					continue;
-				}
-				ob.internalStage = 0;
 
 				foreach (IUpdatableGraph g in astar.data.GetUpdateableGraphs()) {
 					NavGraph gr = g as NavGraph;
@@ -149,7 +144,6 @@ namespace Pathfinding {
 						guo.order = GraphUpdateOrder.GraphUpdate;
 						guo.obj = ob;
 						guo.graph = g;
-						ob.internalStage += 1;
 						graphUpdateQueueRegular.Enqueue(guo);
 					}
 				}
@@ -258,9 +252,6 @@ namespace Pathfinding {
 					if ((threading & GraphUpdateThreading.UnityPost) != 0) {
 						s.graph.UpdateAreaPost(s.obj);
 					}
-
-					s.obj.internalStage -= 1;
-					UnityEngine.Assertions.Assert.IsTrue(s.obj.internalStage >= 0);
 				}
 			}
 
@@ -301,9 +292,6 @@ namespace Pathfinding {
 						Debug.LogError("Error while updating graphs (post step)\n"+e);
 					}
 				}
-
-				s.obj.internalStage -= 1;
-				UnityEngine.Assertions.Assert.IsTrue(s.obj.internalStage >= 0);
 			}
 		}
 
@@ -326,10 +314,7 @@ namespace Pathfinding {
 				if (handleIndex == 1) {
 					// Exit even was fired
 					// Abort thread and clear queue
-					while (graphUpdateQueueAsync.Count > 0) {
-						var s = graphUpdateQueueAsync.Dequeue();
-						s.obj.internalStage = GraphUpdateObject.STAGE_ABORTED;
-					}
+					graphUpdateQueueAsync.Clear();
 					asyncGraphUpdatesComplete.Set();
 #if UNITY_2017_3_OR_NEWER
 					Profiler.EndThreadProfiling();

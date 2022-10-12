@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1535288213}
   - component: {fileID: 1535288215}
   - component: {fileID: 9050417766654840336}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,6 +211,37 @@ MonoBehaviour:
   player: {fileID: 0}
   player_attack_damage: 1
   sword_anim: {fileID: 0}
+--- !u!1 &1597407488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1597407489}
+  m_Layer: 9
+  m_Name: Centre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1597407489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597407488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7875575397285649728}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7875575396438530371
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7875575396438530372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground Check  Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7875575396702547792}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground Check Mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7875575396773644938}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground Check  Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7875575396888807105}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground Checks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +384,8 @@ GameObject:
   - component: {fileID: 7875575397285649740}
   - component: {fileID: 7875575397285649742}
   - component: {fileID: 7875575397285649729}
-  m_Layer: 0
+  - component: {fileID: 414379651}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -374,6 +406,7 @@ Transform:
   m_Children:
   - {fileID: 7875575396888807105}
   - {fileID: 1535288211}
+  - {fileID: 1597407489}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -551,6 +584,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &414379651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875575397285649739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3bc533aa713664ca6ea8708069e306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centreOfPlayerTransform: {fileID: 1597407489}
+  whatIsMineable:
+    serializedVersion: 2
+    m_Bits: 1024
+  radius: 1
 --- !u!1 &8228328445682389222
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,7 +610,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4404250173761432182}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground Check Top
   m_TagString: Untagged
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}

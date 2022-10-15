@@ -23,6 +23,7 @@ public class Game_Management_Logs : MonoBehaviour
     public string SceneNameSaved;
     public int portal_index_to_spawn_at;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,4 +83,6 @@ public class Game_Management_Logs : MonoBehaviour
         }
         cinemachine_editor.Follow_Player();
     }
+
+
 }

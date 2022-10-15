@@ -601,6 +601,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   radius: 1
+  timeBetweenMine: 1
 --- !u!1 &8228328445682389222
 GameObject:
   m_ObjectHideFlags: 0

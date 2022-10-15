@@ -65,6 +65,8 @@
     <Compile Include="Assets\Scripts\Game_Management_Logs.cs" />
     <Compile Include="Assets\Scripts\Player_Controller_1.cs" />
     <Compile Include="Assets\Scripts\SpeakerManager.cs" />
+    <Compile Include="Assets\Scripts\Player_Mine.cs" />
+    <Compile Include="Assets\Scripts\MineableObject.cs" />
     <Compile Include="Assets\Scripts\AI_Stop.cs" />
     <Compile Include="Assets\Scripts\AIJump.cs" />
     <Compile Include="Assets\TriggerPoint.cs" />
@@ -76,8 +78,8 @@
     <Compile Include="Assets\Scripts\Player_Sword.cs" />
     <Compile Include="Assets\Scripts\Sword.cs" />
     <Compile Include="Assets\Scripts\Intro_Trigger_Point.cs" />
-    <Compile Include="Assets\Scripts\Player_Mine.cs" />
-    <Compile Include="Assets\Scripts\MineableObject.cs" />
+    <Compile Include="Assets\Scripts\Pickup.cs" />
+    <Compile Include="Assets\Scripts\MoneyCanvas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiles\Pixel2DCastleTileset\about.txt" />

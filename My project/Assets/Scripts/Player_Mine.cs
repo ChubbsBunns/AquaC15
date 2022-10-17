@@ -13,16 +13,21 @@ public class Player_Mine : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.E) && currentTime >= timeBetweenMine) 
+        if(Input.GetKey(KeyCode.E)) 
         {
-            //Check for any mineable thing near player and call function on those objects
-            Collider2D[] results = Physics2D.OverlapCircleAll(centreOfPlayerTransform.position, radius, whatIsMineable);
-            foreach(Collider2D item in results)
+            //Disable player movement
+            //Play mining animation
+            if(currentTime >= timeBetweenMine)
             {
-                //Call mine function on item;
-                item.GetComponent<MineableObject>().Mine();
+                //Check for any mineable thing near player and call function on those objects
+                Collider2D[] results = Physics2D.OverlapCircleAll(centreOfPlayerTransform.position, radius, whatIsMineable);
+                foreach (Collider2D item in results)
+                {
+                    //Call mine function on item;
+                    item.GetComponent<MineableObject>().Mine();
+                }
+                currentTime = 0;
             }
-            currentTime = 0;
         }
         if (currentTime < timeBetweenMine)
         {

@@ -51,10 +51,13 @@ public class Game_Management_Logs : MonoBehaviour
         return player_character;
     }
     
+
+
     public void Instantiate_Player_Here(Transform portal_location)
     {
 
-        placeholder_player_character = Instantiate(player_character, portal_location.position, Quaternion.identity);
+        //placeholder_player_character = Instantiate(player_character, portal_location.position, Quaternion.identity);
+        
         if (placeholder_player_character == null)
         {
             Debug.LogError("Player Character is NUll");

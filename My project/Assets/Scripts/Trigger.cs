@@ -24,6 +24,6 @@ public class Trigger : MonoBehaviour
         {
             c.move = true;
         }
-        Debug.Log("This isnt a player");
+        //Debug.Log("This isnt a player");
     }
 }

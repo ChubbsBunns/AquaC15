@@ -125,34 +125,45 @@ public class Player_Controller_1 : MonoBehaviour
             Debug.LogError("Why ah");
         }
 
+        player_is_controllable = true;
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player_is_controllable)
         //Attack
-        Sword_Attack();
-        //Jump thing
-        jump_count_placeholder = Mathf.Clamp(jump_count_placeholder, 1, max_number_of_jumps);
+        {
+            Sword_Attack();
+            //Jump thing
+            jump_count_placeholder = Mathf.Clamp(jump_count_placeholder, 1, max_number_of_jumps);
 
-        //put input functions here
-        Horizontal_Movement();
-        Grounded_Check();
-        Double_Jump_Handler();
-        Jump_Inputs();
+            //put input functions here
+            Horizontal_Movement();
+            Grounded_Check();
+            Double_Jump_Handler();
+            Jump_Inputs();
 
-        Am_I_Airborne();
-        current_falling_speed = rb.velocity.y;
-        current_gravity_scale = rb.gravityScale;
+            Am_I_Airborne();
+            current_falling_speed = rb.velocity.y;
+            current_gravity_scale = rb.gravityScale;
+        }
+    
     }
 
     private void FixedUpdate()
     {
-        Do_I_Flip();
-        Jump();
-        Update_Distance_To_Ground();
-        //put jump physics functions here
+        if (player_is_controllable)
+        {
+            Do_I_Flip();
+            Jump();
+            Update_Distance_To_Ground();
+            //put jump physics functions here
+        }
+
+
     }
 
     public void Update_Distance_To_Ground()

@@ -58,9 +58,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CreiddyIntro.cs" />
     <Compile Include="Assets\Scripts\Friend_Caught.cs" />
+    <Compile Include="Assets\AquamiteInstantiator.cs" />
     <Compile Include="Assets\Scripts\Friend_AI.cs" />
     <Compile Include="Assets\Scripts\AI_Start.cs" />
     <Compile Include="Assets\Scripts\Cinemachine_Editor.cs" />
+    <Compile Include="Assets\AquaHouse.cs" />
+    <Compile Include="Assets\Baby_Nu_Controller.cs" />
     <Compile Include="Assets\Scripts\Trigger.cs" />
     <Compile Include="Assets\Scripts\Game_Management_Logs.cs" />
     <Compile Include="Assets\Scripts\Player_Controller_1.cs" />
@@ -68,6 +71,7 @@
     <Compile Include="Assets\Scripts\AI_Stop.cs" />
     <Compile Include="Assets\Scripts\AIJump.cs" />
     <Compile Include="Assets\TriggerPoint.cs" />
+    <Compile Include="Assets\AquaMite_Going_To_Work.cs" />
     <Compile Include="Assets\Scripts\AI_SetDrag.cs" />
     <Compile Include="Assets\Scripts\portal.cs" />
     <Compile Include="Assets\BringSomeLightning.cs" />

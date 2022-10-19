@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Mine : MonoBehaviour
 {
-    [SerializeField] Transform centreOfPlayerTransform; //Transform for the centre of player, assigned in inspector
+    public Transform centreOfPlayerTransform; //Transform for the centre of player, assigned in inspector
     [SerializeField] LayerMask whatIsMineable;          
     [SerializeField] float radius;                      //Radius of mining
     [SerializeField] float timeBetweenMine;             //Time between mining while holding interact key

@@ -84,6 +84,14 @@
     <Compile Include="Assets\Scripts\Player_Sword.cs" />
     <Compile Include="Assets\Scripts\Sword.cs" />
     <Compile Include="Assets\Scripts\Intro_Trigger_Point.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossStateMachine.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossState.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossChaseState.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossWindUpState.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossPowerDashState.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossRockThrowState.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossGroundPoundState.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\Rock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiles\Pixel2DCastleTileset\about.txt" />

@@ -56,36 +56,41 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Ground_AI_Start.cs" />
     <Compile Include="Assets\Scripts\CreiddyIntro.cs" />
     <Compile Include="Assets\Scripts\Friend_Caught.cs" />
+    <Compile Include="Assets\Scripts\AI_Start_Chase.cs" />
+    <Compile Include="Assets\Scripts\AI_Start_Chase_Ground.cs" />
+    <Compile Include="Assets\AquamiteInstantiator.cs" />
     <Compile Include="Assets\Scripts\Friend_AI.cs" />
     <Compile Include="Assets\Scripts\AI_Start.cs" />
     <Compile Include="Assets\Scripts\Cinemachine_Editor.cs" />
+    <Compile Include="Assets\AquaHouse.cs" />
+    <Compile Include="Assets\Scripts\Ground_Enemy_AI.cs" />
+    <Compile Include="Assets\Baby_Nu_Controller.cs" />
+    <Compile Include="Assets\Scripts\Trigger.cs" />
     <Compile Include="Assets\Scripts\Game_Management_Logs.cs" />
     <Compile Include="Assets\Scripts\Player_Controller_1.cs" />
+    <Compile Include="Assets\Scripts\Ground_AI_Move_On.cs" />
+    <Compile Include="Assets\Scripts\Flying_Enemy_AI.cs" />
     <Compile Include="Assets\Scripts\SpeakerManager.cs" />
+    <Compile Include="Assets\Scripts\Ground_Enemy_AI_Jump.cs" />
     <Compile Include="Assets\Scripts\AI_Stop.cs" />
     <Compile Include="Assets\Scripts\AIJump.cs" />
+    <Compile Include="Assets\Scripts\Flying_AI.cs" />
     <Compile Include="Assets\TriggerPoint.cs" />
+    <Compile Include="Assets\AquaMite_Going_To_Work.cs" />
     <Compile Include="Assets\Scripts\AI_SetDrag.cs" />
     <Compile Include="Assets\Scripts\portal.cs" />
     <Compile Include="Assets\BringSomeLightning.cs" />
+    <Compile Include="Assets\Scripts\Flying_AI_Trigger.cs" />
     <Compile Include="Assets\Scripts\Enemy_Health.cs" />
+    <Compile Include="Assets\Flying_Enemy_GFX.cs" />
+    <Compile Include="Assets\Scripts\Flying_AI_Flip.cs" />
+    <Compile Include="Assets\Scripts\AI_Start_Chase_Flying.cs" />
     <Compile Include="Assets\Scripts\Player_Sword.cs" />
     <Compile Include="Assets\Scripts\Sword.cs" />
     <Compile Include="Assets\Scripts\Intro_Trigger_Point.cs" />
-    <Compile Include="Assets\Flying_Enemy_GFX.cs" />
-    <Compile Include="Assets\Scripts\Flying_AI_Trigger.cs" />
-    <Compile Include="Assets\Scripts\AI_Start_Chase.cs" />
-    <Compile Include="Assets\Scripts\Ground_AI_Start.cs" />
-    <Compile Include="Assets\Scripts\Flying_AI_Flip.cs" />
-    <Compile Include="Assets\Scripts\Ground_Enemy_AI.cs" />
-    <Compile Include="Assets\Scripts\Ground_Enemy_AI_Jump.cs" />
-    <Compile Include="Assets\Scripts\AI_Start_Chase_Flying.cs" />
-    <Compile Include="Assets\Scripts\AI_Start_Chase_Ground.cs" />
-    <Compile Include="Assets\Scripts\Ground_AI_Move_On.cs" />
-    <Compile Include="Assets\Scripts\Flying_AI.cs" />
-    <Compile Include="Assets\Scripts\Flying_Enemy_AI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiles\Pixel2DCastleTileset\about.txt" />

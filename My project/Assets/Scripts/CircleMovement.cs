@@ -52,7 +52,7 @@ public class CircleMovement : MonoBehaviour
             if ((Math.Abs(transform.position.x - patrolPoints[currentPointIndex].position.x) <= 0.1) 
                 && (Math.Abs(transform.position.y - patrolPoints[currentPointIndex].position.y) <= 0.1) )
             {
-                Debug.Log("Transform Position is equal to atrol points");
+                //Debug.Log("Transform Position is equal to patrol points");
                 if (currentPointIndex + 1 < patrolPoints.Length)
                 {
                     if (currentPointIndex == 0)
@@ -69,8 +69,8 @@ public class CircleMovement : MonoBehaviour
             }
             else
             {
-                Debug.Log(transform.position.x);
-                Debug.Log(patrolPoints[currentPointIndex].position.x);
+                //Debug.Log(transform.position.x);
+                //Debug.Log(patrolPoints[currentPointIndex].position.x);
             }
         }
         

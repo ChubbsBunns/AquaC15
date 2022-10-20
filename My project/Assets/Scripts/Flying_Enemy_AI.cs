@@ -14,6 +14,8 @@ public class Flying_Enemy_AI : MonoBehaviour
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
 
+    public float maxForceAdded = 10f;
+
     [Header("Custom Behaviour")]
 
     private Path path;
@@ -59,9 +61,13 @@ public class Flying_Enemy_AI : MonoBehaviour
         }
 
         Vector2 direction = ((Vector2) path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Debug.Log("Direction is " + direction);
         Vector2 force = direction * speed * Time.deltaTime;
 
-        rb.AddForce(force);
+        Debug.Log(rb.velocity);
+
+        rb.velocity = force;
+//        rb.AddForce(force);
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 

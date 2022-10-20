@@ -13,7 +13,9 @@ public class AI_Start_Chase_Flying : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            nextTarget = other.gameObject.GetComponent(typeof(Transform)) as Transform;
+            
+            //nextTarget = other.gameObject.GetComponent(typeof(Transform)) as Transform;
+            nextTarget = other.gameObject.GetComponent<Player_Controller_1>().PlayerCenter;
             enemy.setTarget(nextTarget);
             if(textNo >= 0) { SpeakerManager.instance.Speak(textNo); textNo = -1; }
             nextStart.gameObject.SetActive(true);

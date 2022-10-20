@@ -14,7 +14,7 @@ public class Ground_Enemy_AI : MonoBehaviour
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
     public float jumpNodeHeightRequirement = 0.8f; //How vertical the next node needs to be in order for the character to jump
-    public float jumpModifier = 0.3f; //Setting how high jump is
+    public float jumpModifier = 0.6f; //Setting how high jump is
     public float jumpCheckOffset = 0.1f; //Adjust it to make sure collider is right
     public Transform feet;
     public LayerMask whatIsGround;

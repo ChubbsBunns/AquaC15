@@ -69,8 +69,8 @@ public class Flying_AI : MonoBehaviour
             }
             else
             {
-                Debug.Log(transform.position.x);
-                Debug.Log(patrolPoints[currentPointIndex].position.x);
+                //Debug.Log(transform.position.x);
+                //Debug.Log(patrolPoints[currentPointIndex].position.x);
             }
         }
         

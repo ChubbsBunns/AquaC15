@@ -85,6 +85,9 @@ public class Player_Controller_1 : MonoBehaviour
     [Header("Health")]
     public int health;
 
+    [Header("Enemy Detection")]
+    public Transform PlayerCenter;
+
     [Header("Animation")]
     public Animator Nu_Anim;
 

@@ -4,23 +4,37 @@ using UnityEngine;
 
 public class AquamiteInstantiator : MonoBehaviour
 {
-    public AquaMite_Going_To_Work[] AquaMites;
+    public GameObject[] AquaMites;
     public float TimeToInstantiate;
     public int WhichMite;
+
+    
     // Start is called before the first frame update
     void Start()
     {
 
-        TimeToInstantiate = Random.Range(0.0f, 2f);
+        
         //        int maxNumMites = AquaMites.Length();
-        //        /WhichMite = Random.Range(0.0f, maxNumMites);
-        StartCoroutine(WaitForSeconds(TimeToInstantiate));
+        StartCoroutine(WaitForSeconds());
     }
 
-    IEnumerator WaitForSeconds(float timing)
+    IEnumerator WaitForSeconds()
     {
-        Debug.Log(timing);
-        yield return new WaitForSeconds(timing);
+        
+        TimeToInstantiate = Random.Range(0.0f, 2f);
+        Debug.Log(TimeToInstantiate);
+        yield return new WaitForSeconds(TimeToInstantiate);
+        InstantiateRunner();
 
+    }
+
+    void InstantiateRunner()
+    {
+        float maxNumMites = (float)AquaMites.Length;
+        WhichMite = (int) Random.Range(0.0f, maxNumMites);
+//        Debug.Log("WHICHMITE IS " + WhichMite);
+        Instantiate(AquaMites[WhichMite], transform.position, transform.rotation);
+//        Debug.Log("I HAVE PUT PUT A PERSON");
+        StartCoroutine(WaitForSeconds());
     }
 }

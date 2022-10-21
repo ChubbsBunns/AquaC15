@@ -12,13 +12,13 @@ public class AquaHouse : MonoBehaviour
         
         startTime = Random.Range(0.0f, 3f);
         thisHouse = GetComponent<Animator>();
-        Debug.Log(startTime);
+        //Debug.Log(startTime);
         StartCoroutine(WaitForSeconds(startTime));
     }
 
     IEnumerator WaitForSeconds(float timing)
     {
-        Debug.Log(timing);
+//        Debug.Log(timing);
         yield return new WaitForSeconds(timing);
         StartGlowing();
     }

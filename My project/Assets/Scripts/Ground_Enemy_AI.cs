@@ -167,4 +167,9 @@ public class Ground_Enemy_AI : MonoBehaviour
             currentWaypoint = 0;
         }
     }
+
+    private void FollowSpecificTarget(Transform FollowThis)
+    {
+        target = FollowThis;
+    }
 }

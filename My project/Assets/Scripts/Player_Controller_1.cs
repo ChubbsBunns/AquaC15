@@ -55,6 +55,8 @@ public class Player_Controller_1 : MonoBehaviour
     //gorund check top is only meant for jumping stoppages upon hitting a ceiling
     public Transform ground_check_top;
 
+    public Collider2D PlayerCollider;
+
     [Header("Ground RayCasts")]
     RaycastHit2D ground_hit;
     public float distance_to_ground;
@@ -112,7 +114,7 @@ public class Player_Controller_1 : MonoBehaviour
     {
         //This is a placeholder for health
         health = 5;
-         
+         PlayerCollider = GetComponent<Collider2D>();
          
         acceleration = max_horizontal_speed / time_from_zero_to_max_horizontal_speed;
         deceleration = max_horizontal_speed / time_from_max_horizontal_speed_to_zero;
@@ -180,9 +182,9 @@ public class Player_Controller_1 : MonoBehaviour
     {
         horizontal_Input = (int)Input.GetAxisRaw("Horizontal");
 
-        Debug.Log("is_grounded is " + is_grounded);
-        Debug.Log("is_airborne is " + is_airborne);
-        Debug.Log("Math.Abs(horizontal_Input is " + Mathf.Abs(horizontal_Input));
+//        Debug.Log("is_grounded is " + is_grounded);
+//        Debug.Log("is_airborne is " + is_airborne);
+//        Debug.Log("Math.Abs(horizontal_Input is " + Mathf.Abs(horizontal_Input));
 
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || is_running || is_jumping || is_dashing )
         {
@@ -441,6 +443,17 @@ public class Player_Controller_1 : MonoBehaviour
         return value * value;
     }
 
+
+    //Collision management relative to player
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+//        Debug.Log(other);
+        if (other.gameObject.CompareTag("AquaMites"))
+        {
+            Collider2D AquaMiteCollider2D = other.gameObject.GetComponent<Collider2D>();
+            Physics2D.IgnoreCollision(AquaMiteCollider2D, PlayerCollider);
+        }    
+    }
     
 
 

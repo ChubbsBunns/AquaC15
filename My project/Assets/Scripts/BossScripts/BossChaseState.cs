@@ -20,6 +20,14 @@ public class BossChaseState : BossState
         Vector2 dir = boss.player.transform.position - boss.transform.position;
         if(dir.x < 0)
         {
+            Debug.Log("I am chasing player to the left");
+
+        }else
+        {
+            Debug.Log("I am chasing player to the right");
+        }
+        if (dir.x < 0)
+        {
             //Boss towards the right
             boss.rb.velocity = new Vector2(-boss.bossSpeed, 0);
         }
@@ -38,13 +46,18 @@ public class BossChaseState : BossState
     }
     public override void BossEnterState(BossStateMachine boss)
     {
+        Debug.Log("Entered chase state");
         time = 0;
     }
 
     public override void BossExitState(BossStateMachine boss)
     {
-        
+        time = 0;
     }
 
-    
+    public override void BossCollision(BossStateMachine boss, Collision2D collision)
+    {
+    }
+
+
 }

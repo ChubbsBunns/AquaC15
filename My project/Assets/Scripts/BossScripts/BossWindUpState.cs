@@ -32,21 +32,27 @@ public class BossWindUpState : BossState
         }
     }
 
+    public override void BossCollision(BossStateMachine boss, Collision2D collision)
+    {
+    }
+
     private void Attack(BossStateMachine boss)
     {
         if (availAttacks.Count == 0)
         {
             availAttacks = attacks;
         }
-        int index = 1; //Random.Range(0, availAttacks.Count);
+        int index = 3; //Random.Range(0, availAttacks.Count);
         switch (index)
         {
             case 1:
                 boss.ChangeState(boss.bossRockThrowState);
                 break;
             case 2:
+                boss.ChangeState(boss.bossPowerDashState);
                 break;
             case 3:
+                boss.ChangeState(boss.bossGroundPoundState);
                 break;
         }
         //availAttacks.Remove(availAttacks[index]);

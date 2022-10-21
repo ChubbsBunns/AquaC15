@@ -12,4 +12,6 @@ public abstract class BossState
 
     public abstract void BossExitState(BossStateMachine boss);
 
+    public abstract void BossCollision(BossStateMachine boss, Collision2D collision);
+
 }

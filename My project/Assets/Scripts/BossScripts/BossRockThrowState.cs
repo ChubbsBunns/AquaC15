@@ -38,6 +38,10 @@ public class BossRockThrowState : BossState
         }
     }
 
+    public override void BossCollision(BossStateMachine boss, Collision2D collision)
+    {
+    }
+
     void ThrowRock(BossStateMachine boss)
     {
         boss.ThrowRock();

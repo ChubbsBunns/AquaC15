@@ -398,7 +398,7 @@ public class Player_Controller_1 : MonoBehaviour
     {        
         if (Input.GetButtonDown("Fire1") && able_to_attack)
         {
-            Debug.Log("I am able to sense sword attack button and isabletoattack");
+//            Debug.Log("I am able to sense sword attack button and isabletoattack");
             if (Input.GetButton("Up"))
             {
                 player_slash.StartUpAttack();

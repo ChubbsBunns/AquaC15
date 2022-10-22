@@ -22,7 +22,7 @@ public class AquamiteInstantiator : MonoBehaviour
     {
         
         TimeToInstantiate = Random.Range(0.0f, 2f);
-        Debug.Log(TimeToInstantiate);
+//        Debug.Log(TimeToInstantiate);
         yield return new WaitForSeconds(TimeToInstantiate);
         InstantiateRunner();
 

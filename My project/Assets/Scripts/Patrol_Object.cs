@@ -21,15 +21,24 @@ public class Patrol_Object : MonoBehaviour
 
     public Collider2D thisCollider;
 
+    SpriteRenderer sr;
+
     void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
 
+        int orderInLayer = (int)Random.Range(0.0f,5.0f);
+
+        sr.sortingOrder = orderInLayer ;
         thisCollider = GetComponent<Collider2D>();
         speed = Random.Range(lower_bound_speed, upper_bound_speed);
         AquamiteInstantiatorThing = FindObjectOfType<AquamiteInstantiator>();
+        AquamiteRoute = FindObjectOfType<AquaMiteWorkerRoute>();
         //patrolPoints = new Transform[AquamiteRoute.points.Length + 2];
-        patrolPoints[0].position = AquamiteInstantiatorThing.transform.position;
+        
+        //Debug.Log("AquamiteInstantiatorThing.transform.position" + AquamiteInstantiatorThing.transform.position.x + AquamiteInstantiatorThing.transform.position.y);
         GetPoints();
+        patrolPoints[0].position = AquamiteInstantiatorThing.transform.position;
         if (AquamiteRoute)
         {
             StartCoroutine(NowYouMove());
@@ -39,35 +48,12 @@ public class Patrol_Object : MonoBehaviour
 
     public void GetPoints()
     {
-        Debug.Log("This is getting called");
-        AquamiteRoute = FindObjectOfType<AquaMiteWorkerRoute>();
-        if (AquamiteRoute != true)
-        {
-            Debug.LogError("I cant find the aquamite worker route object");
-        }
-        else
-        {
-            Debug.Log("Aquamite is true");
-        }
-        transform.position = patrolPoints[0].position;
-
         for (int i = 0; i < AquamiteRoute.points.Length; i++)
         {
-            Debug.Log("AquamteRoute Points" + i + AquamiteRoute.points[i].position.x);
+            Transform PositionThing = AquamiteRoute.points[i];
+            patrolPoints[i] = PositionThing;
         }
-
-        Debug.Log("PatrolPoints.Length" + patrolPoints.Length);
-        Debug.Log("AquamiteRoute.points.Length" + AquamiteRoute.points.Length);
-
-        for (int i = 0; i < AquamiteRoute.points.Length; i++)
-        {
-            patrolPoints[i] = AquamiteRoute.points[i];
-            //Debug.Log(i);
-            //patrolPoints[i + 1] = transform;
-            //Debug.Log(i + 1);
-            //AquamiteRoute.points[i] = transform;
-        }
-
+        patrolPoints[0] = gameObject.transform;
     }
 
     // Update is called once per frame
@@ -84,7 +70,7 @@ public class Patrol_Object : MonoBehaviour
                 }
                 else
                 {
-                    currentPointIndex = 0;
+                    currentPointIndex = patrolPoints.Length - 1;
                 }
             }
         }

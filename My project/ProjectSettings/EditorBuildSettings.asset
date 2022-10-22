@@ -24,9 +24,21 @@ EditorBuildSettings:
     path: Assets/Scenes/2.unity
     guid: 3a571cf0ff2cc8c47a2677e0496cd9a5
   - enabled: 1
+    path: Assets/Scenes/6 Aquaden_Intro.unity
+    guid: bb61fc5f0eb476e459e4d661f8e84819
+  - enabled: 1
     path: Assets/Scenes/Mining.unity
     guid: 634b3d9bae331a24d9ea9dc1ac9a6f2c
   - enabled: 1
     path: Assets/Scenes/Boss.unity
     guid: 69c06486048a1a94ba34e5712b5507b7
+  - enabled: 1
+    path: Assets/Scenes/AquadenWorkPlace.unity
+    guid: ca0b44d0c70e7e64ea25fb4a64c10817
+  - enabled: 1
+    path: Assets/Scenes/MapLayout1.unity
+    guid: 4d5ff4742ad072442bd8034b0ed5b83a
+  - enabled: 1
+    path: Assets/Scenes/MapLayout2.unity
+    guid: a41e6ec38bfd1f449b50cb9d5de79ff9
   m_configObjects: {}

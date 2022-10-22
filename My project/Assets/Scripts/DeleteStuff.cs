@@ -16,7 +16,8 @@ public class DeleteStuff : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
         if (other.CompareTag("AquaMites"))
         {
             Destroy(other.gameObject);

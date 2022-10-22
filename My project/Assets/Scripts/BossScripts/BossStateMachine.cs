@@ -24,12 +24,16 @@ public class BossStateMachine : MonoBehaviour
     public List<Transform> fallingRockPositions2;
     public List<Transform> fallingRockPositions3;
     public float maxTimeBeforeRockFall;
+    public GameObject gateTileMap;
+    public Collider2D bossCollider;
+    public BossHealth bossHealth;
 
     public BossChaseState bossChaseState = new BossChaseState();
     public BossWindUpState bossWindUpState = new BossWindUpState();
     public BossRockThrowState bossRockThrowState = new BossRockThrowState();
     public BossPowerDashState bossPowerDashState = new BossPowerDashState();
     public BossGroundPoundState bossGroundPoundState = new BossGroundPoundState();
+    public BossIdleState bossIdleState = new BossIdleState();
     private void Start()
     {
         fallingRockPositions.Add(fallingRockPositions1);
@@ -37,7 +41,7 @@ public class BossStateMachine : MonoBehaviour
         fallingRockPositions.Add(fallingRockPositions3);
         player = FindObjectOfType<Player_Mine>().centreOfPlayerTransform;
         rb = GetComponent<Rigidbody2D>();
-        currentState = bossChaseState;
+        currentState = bossIdleState;
         currentState.BossEnterState(this);
     }
 
@@ -76,5 +80,12 @@ public class BossStateMachine : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         currentState.BossCollision(this, collision);
+    }
+
+    public void StartFight()
+    {
+        gateTileMap.gameObject.SetActive(true);
+        bossHealth.EnableHealthBar();
+        ChangeState(bossChaseState);
     }
 }

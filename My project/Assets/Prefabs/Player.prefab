@@ -209,7 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sword_collider: {fileID: 0}
   player: {fileID: 0}
-  player_attack_damage: 1
+  player_attack_damage: 10
   sword_anim: {fileID: 0}
 --- !u!1 &1597407488
 GameObject:
@@ -515,8 +515,10 @@ MonoBehaviour:
   is_dashing: 0
   player_is_controllable: 0
   is_airborne: 0
+  is_running: 0
   current_Speed: 0
   facing_Right: 1
+  prev_horizontal_input: 0
   time_from_zero_to_max_horizontal_speed: 0.2
   max_horizontal_speed: 6.5
   time_from_max_horizontal_speed_to_zero: 0.15
@@ -563,6 +565,7 @@ MonoBehaviour:
   player_slash: {fileID: 0}
   able_to_attack: 1
   health: 0
+  PlayerCenter: {fileID: 0}
   Nu_Anim: {fileID: 0}
 --- !u!95 &7875575397285649729
 Animator:

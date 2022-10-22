@@ -18,14 +18,7 @@ public class BossChaseState : BossState
             boss.ChangeState(boss.bossWindUpState);
         }
         Vector2 dir = boss.player.transform.position - boss.transform.position;
-        if(dir.x < 0)
-        {
-            Debug.Log("I am chasing player to the left");
 
-        }else
-        {
-            Debug.Log("I am chasing player to the right");
-        }
         if (dir.x < 0)
         {
             //Boss towards the right
@@ -46,7 +39,6 @@ public class BossChaseState : BossState
     }
     public override void BossEnterState(BossStateMachine boss)
     {
-        Debug.Log("Entered chase state");
         time = 0;
     }
 

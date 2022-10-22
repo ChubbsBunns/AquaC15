@@ -40,10 +40,13 @@ public class BossWindUpState : BossState
     {
         if (availAttacks.Count == 0)
         {
-            availAttacks = attacks;
+            for(int i = 0; i < attacks.Count; ++i)
+            {
+                availAttacks.Add(attacks[i]);
+            }
         }
-        int index = 3; //Random.Range(0, availAttacks.Count);
-        switch (index)
+        int index = Random.Range(0, availAttacks.Count);
+        switch (availAttacks[index])
         {
             case 1:
                 boss.ChangeState(boss.bossRockThrowState);
@@ -55,6 +58,6 @@ public class BossWindUpState : BossState
                 boss.ChangeState(boss.bossGroundPoundState);
                 break;
         }
-        //availAttacks.Remove(availAttacks[index]);
+        availAttacks.Remove(availAttacks[index]);
     }
 }

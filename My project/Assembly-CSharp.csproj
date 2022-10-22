@@ -63,6 +63,8 @@
     <Compile Include="Assets\Scripts\AI_Start_Chase_Ground.cs" />
     <Compile Include="Assets\AquamiteInstantiator.cs" />
     <Compile Include="Assets\Scripts\Friend_AI.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossTriggerPoint.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossHealth.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossStateMachine.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossPowerDashState.cs" />
     <Compile Include="Assets\Scripts\AI_Start.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Assets\Scripts\AI_Stop.cs" />
     <Compile Include="Assets\Scripts\AIJump.cs" />
     <Compile Include="Assets\Scripts\Flying_AI.cs" />
+    <Compile Include="Assets\Scripts\BossScripts\BossIdleState.cs" />
     <Compile Include="Assets\TriggerPoint.cs" />
     <Compile Include="Assets\AquaMite_Going_To_Work.cs" />
     <Compile Include="Assets\Scripts\AI_SetDrag.cs" />
@@ -104,9 +107,6 @@
     <Compile Include="Assets\Scripts\Player_Sword.cs" />
     <Compile Include="Assets\Scripts\Sword.cs" />
     <Compile Include="Assets\Scripts\Intro_Trigger_Point.cs" />
-    <Compile Include="Assets\Scripts\BossScripts\BossIdleState.cs" />
-    <Compile Include="Assets\Scripts\BossScripts\BossTriggerPoint.cs" />
-    <Compile Include="Assets\Scripts\BossScripts\BossHealth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiles\Pixel2DCastleTileset\about.txt" />

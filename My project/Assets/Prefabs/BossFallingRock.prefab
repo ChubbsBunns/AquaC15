@@ -119,5 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27550261291134f419480b6a0506b4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeAlive: 5
   maxTimeBeforeFalling: 0
   rb: {fileID: 6863892033032087126}

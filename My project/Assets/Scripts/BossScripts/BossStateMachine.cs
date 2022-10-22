@@ -4,30 +4,45 @@ using UnityEngine;
 
 public class BossStateMachine : MonoBehaviour
 {
+    [Header("Not Assigned")]
     BossState currentState;
     public Transform player;
-    public Transform rockOrigin;
-    public GameObject rockPrefab;
-    public float rockSpeed;
     public Rigidbody2D rb;
+    public bool grounded;
+
+    [Header("General Boss Variables")]
     public float bossSpeed;
     public float timeBetweenAttacks;
     public float windUpTime;
-    public GameObject targetImage;
-    public float powerDashSpeed;
-    public bool grounded;
     public Transform feet;
     public LayerMask whatIsGround;
+    public GameObject gateTileMap;
+    public Collider2D bossCollider;
+    public BossHealth bossHealth;
+
+    [Header("Rock Throw Variables")]
+    public Transform rockOrigin;
+    public GameObject rockPrefab;
+    public float rockSpeed;
+    public float timeForRockThrow;
+    public int numRocksPerAttack;
+    public float timeDecrementBetweenThrows;
+    public GameObject targetImage;
+
+    [Header("Power Dash Variables")]
+    public float powerDashSpeed;
+
+    [Header("Ground Pound Variables")]
     public FallingRock fallingRockPrefab;
     public List<List<Transform>> fallingRockPositions = new List<List<Transform>>();
     public List<Transform> fallingRockPositions1;
     public List<Transform> fallingRockPositions2;
     public List<Transform> fallingRockPositions3;
     public float maxTimeBeforeRockFall;
-    public GameObject gateTileMap;
-    public Collider2D bossCollider;
-    public BossHealth bossHealth;
+    public float timeBetweenGroundPounds;
+    public int numberOfGroundPounds;
 
+    //Boss States
     public BossChaseState bossChaseState = new BossChaseState();
     public BossWindUpState bossWindUpState = new BossWindUpState();
     public BossRockThrowState bossRockThrowState = new BossRockThrowState();
@@ -59,12 +74,17 @@ public class BossStateMachine : MonoBehaviour
 
     }
 
+    //Function called by rock throw state
+    //Simply instantiates and throws a rock at player
     public void ThrowRock()
     {
         GameObject rock = Instantiate<GameObject>(rockPrefab, rockOrigin.position, Quaternion.identity);
         rock.GetComponent<Rigidbody2D>().velocity = (targetImage.transform.position - rockOrigin.position).normalized * rockSpeed;
     }
 
+    //Function called by groundpound state
+    //Makes rocks fall at locations specified in fallingRockPositions list
+    //num is used to determine which set of positions to used for variations between sets of falling rocks
     public void GroundPound(int num)
     {
         foreach(Transform t in fallingRockPositions[num - 1])
@@ -75,13 +95,14 @@ public class BossStateMachine : MonoBehaviour
         //Do something like shake the screen
     }
 
-    //Do something for when the boss takes damage later
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         currentState.BossCollision(this, collision);
     }
 
+    //Called when triggered by player walking into a trigger point
+    //Starts the boss fight
     public void StartFight()
     {
         gateTileMap.gameObject.SetActive(true);

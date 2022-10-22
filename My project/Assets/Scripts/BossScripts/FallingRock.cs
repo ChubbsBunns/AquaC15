@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingRock : MonoBehaviour
 {
-    public float timeAlive = 2f;
+    public float timeAlive = 8f;
     public float maxTimeBeforeFalling;
     public Rigidbody2D rb;
     private void Start()

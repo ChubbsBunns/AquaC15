@@ -5,8 +5,6 @@ using UnityEngine;
 public class BossGroundPoundState : BossState
 {
     float time = 0;
-    float timeBetweenGroundPounds = 6f;
-    int numberOfGroundPounds = 3;
     int count = 0;
 
     public override void BossCollision(BossStateMachine boss, Collision2D collision)
@@ -15,6 +13,7 @@ public class BossGroundPoundState : BossState
 
     public override void BossEnterState(BossStateMachine boss)
     {
+        //Pound the ground on enter since wind up time was already gone through in wind up state
         count = 0;
         GroundPound(boss);
     }
@@ -29,7 +28,8 @@ public class BossGroundPoundState : BossState
 
     public override void BossUpdate(BossStateMachine boss)
     {
-        if(time < timeBetweenGroundPounds)
+        //Pound the ground after a period
+        if(time < boss.timeBetweenGroundPounds)
         {
             time += Time.deltaTime;
         }
@@ -39,11 +39,12 @@ public class BossGroundPoundState : BossState
         }
     }
 
+    //Adds to the count for limiting number of ground pounds
     void GroundPound(BossStateMachine boss)
     {
         time = 0;
         ++count;
-        if(count >= numberOfGroundPounds)
+        if(count >= boss.numberOfGroundPounds)
         {
             boss.ChangeState(boss.bossChaseState);
         }

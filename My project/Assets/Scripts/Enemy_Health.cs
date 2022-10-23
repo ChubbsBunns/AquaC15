@@ -6,6 +6,7 @@ public class Enemy_Health : MonoBehaviour
 {
     public int enemy_health;
     public GameObject death_effect;
+    [SerializeField] Quest quest;
 
     public void Enemy_Take_Damage(int player_damage)
     {
@@ -14,6 +15,7 @@ public class Enemy_Health : MonoBehaviour
         {
             Instantiate(death_effect, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            quest.goal.EnemyKilled();
         }
     }
 }

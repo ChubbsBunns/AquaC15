@@ -8,6 +8,8 @@ public class Player_Health : MonoBehaviour
     [Header("Behaviour Variables")]     
     [SerializeField] int hearts = 3;                //How many hearts the player starts with
     [SerializeField] float hitImmunityTime;         //How long the player is immune after taking damage
+    [SerializeField] float onHitShakeIntensity;
+    [SerializeField] float onHitShakeDuration;
 
     [Header("UI Variables")]
     [SerializeField] Sprite healthyHeart;
@@ -36,6 +38,7 @@ public class Player_Health : MonoBehaviour
     public void TakeDamage()
     {
         if(currentHeartIndex < 0 || hitImmunity) { return; }
+        CinemachineCameraShake.instance.ShakeCamera(onHitShakeIntensity, onHitShakeDuration);
         heartImages[currentHeartIndex].sprite = damagedHeart;
         --currentHeartIndex;
         if(currentHeartIndex < 0)

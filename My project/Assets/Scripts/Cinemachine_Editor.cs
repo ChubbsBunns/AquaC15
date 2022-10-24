@@ -24,17 +24,6 @@ public class Cinemachine_Editor : MonoBehaviour
         vcam_main.Follow = player.transform;
     }
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Follow_Player()
     {
         player = FindObjectOfType<Player_Controller_1>();

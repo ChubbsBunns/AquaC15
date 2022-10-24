@@ -42,6 +42,8 @@ public class BossStateMachine : MonoBehaviour
     public float maxTimeBeforeRockFall;
     public float timeBetweenGroundPounds;
     public int numberOfGroundPounds;
+    public float cameraShakeIntensity;
+    public float cameraShakeDuration;
 
     //Boss States
     public BossChaseState bossChaseState = new BossChaseState();
@@ -89,6 +91,7 @@ public class BossStateMachine : MonoBehaviour
     //num is used to determine which set of positions to used for variations between sets of falling rocks
     public void GroundPound(int num)
     {
+        CinemachineCameraShake.instance.ShakeCamera(cameraShakeIntensity, cameraShakeDuration);
         foreach(Transform t in fallingRockPositions[num - 1])
         {
             FallingRock fallingRock = Instantiate<FallingRock>(fallingRockPrefab, t.position, Quaternion.identity);

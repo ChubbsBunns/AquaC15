@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\AI_SetDrag.cs" />
     <Compile Include="Assets\Scripts\BossScripts\Rock.cs" />
     <Compile Include="Assets\Scripts\portal.cs" />
+    <Compile Include="Assets\Scripts\Player_Health.cs" />
     <Compile Include="Assets\BringSomeLightning.cs" />
     <Compile Include="Assets\Scripts\MoneyCanvas.cs" />
     <Compile Include="Assets\Scripts\Flying_AI_Trigger.cs" />
@@ -107,7 +108,7 @@
     <Compile Include="Assets\Scripts\Player_Sword.cs" />
     <Compile Include="Assets\Scripts\Sword.cs" />
     <Compile Include="Assets\Scripts\Intro_Trigger_Point.cs" />
-    <Compile Include="Assets\Scripts\Player_Health.cs" />
+    <Compile Include="Assets\Scripts\CinemachineCameraShake.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiles\Pixel2DCastleTileset\about.txt" />

@@ -427,7 +427,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -535,6 +535,8 @@ MonoBehaviour:
   maxTimeBeforeRockFall: 2
   timeBetweenGroundPounds: 4
   numberOfGroundPounds: 3
+  cameraShakeIntensity: 5
+  cameraShakeDuration: 1
 --- !u!114 &1544058541914679773
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class BossStateMachine : MonoBehaviour
 {
     [Header("Not Assigned")]
     BossState currentState;
+    Player_Health playerHealth;
     public Transform player;
     public Rigidbody2D rb;
     public bool grounded;
@@ -55,6 +56,7 @@ public class BossStateMachine : MonoBehaviour
         fallingRockPositions.Add(fallingRockPositions2);
         fallingRockPositions.Add(fallingRockPositions3);
         player = FindObjectOfType<Player_Mine>().centreOfPlayerTransform;
+        playerHealth = player.GetComponentInParent<Player_Health>();
         rb = GetComponent<Rigidbody2D>();
         currentState = bossIdleState;
         currentState.BossEnterState(this);
@@ -99,6 +101,10 @@ public class BossStateMachine : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         currentState.BossCollision(this, collision);
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            playerHealth.TakeDamage();
+        }
     }
 
     //Called when triggered by player walking into a trigger point

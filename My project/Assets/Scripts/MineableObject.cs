@@ -14,6 +14,7 @@ public class MineableObject : MonoBehaviour
     [SerializeField] int numItemPerMine = 1;            //Number of items that 
     [SerializeField] SpriteRenderer spriteRenderer;     //Sprite renderer for mine graphic
     [SerializeField] SpriteRenderer glowSpriteRenderer; //Sprite renderer for glow of mine graphic
+    [SerializeField] public Quest quest;
 
     int spriteIndex = 0;
 
@@ -34,6 +35,7 @@ public class MineableObject : MonoBehaviour
         if(spriteIndex >= sprites.Length)
         {
             Destroy(this.gameObject);
+            quest.goal.MineMined();
         }
         else
         {

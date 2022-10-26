@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Flying_Enemy_AI.cs" />
      <Compile Include="Assets\Scripts\SpeakerManager.cs" />
      <Compile Include="Assets\Scripts\AquaMiteColourController.cs" />
+     <Compile Include="Assets\SpeechController.cs" />
      <Compile Include="Assets\Scripts\Player_Mine.cs" />
      <Compile Include="Assets\Scripts\Scroller.cs" />
      <Compile Include="Assets\Scripts\MineableObject.cs" />
@@ -77,6 +78,7 @@
      <Compile Include="Assets\Scripts\TriggerPoint.cs" />
      <Compile Include="Assets\Scripts\PipeScene.cs" />
      <Compile Include="Assets\Scripts\AquaMite_Going_To_Work.cs" />
+     <Compile Include="Assets\PipeScene.cs" />
      <Compile Include="Assets\Scripts\AI_SetDrag.cs" />
      <Compile Include="Assets\Scripts\BossScripts\Rock.cs" />
      <Compile Include="Assets\Scripts\portal.cs" />
@@ -92,7 +94,6 @@
      <Compile Include="Assets\Scripts\Player_Sword.cs" />
      <Compile Include="Assets\Scripts\Sword.cs" />
      <Compile Include="Assets\Scripts\Intro_Trigger_Point.cs" />
-     <Compile Include="Assets\PipeScene.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

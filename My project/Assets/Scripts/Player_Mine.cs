@@ -9,7 +9,11 @@ public class Player_Mine : MonoBehaviour
     [SerializeField] float radius;                      //Radius of mining
     [SerializeField] float timeBetweenMine;             //Time between mining while holding interact key
     float currentTime;
+    [SerializeField] Animator anim;
 
+    private void Start() {
+        anim = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -17,6 +21,7 @@ public class Player_Mine : MonoBehaviour
         {
             //Disable player movement
             //Play mining animation
+            anim.SetBool("Mining",true);
             if(currentTime >= timeBetweenMine)
             {
                 //Check for any mineable thing near player and call function on those objects
@@ -28,6 +33,10 @@ public class Player_Mine : MonoBehaviour
                 }
                 currentTime = 0;
             }
+        }
+        else
+        {
+            anim.SetBool("Mining",false);
         }
         if (currentTime < timeBetweenMine)
         {

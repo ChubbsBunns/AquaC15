@@ -239,6 +239,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: portal
       objectReference: {fileID: 0}
+    - target: {fileID: 7714181153773896495, guid: 7d7d655d9adc5bc44b36970ed7806b79, type: 3}
+      propertyPath: portal_index
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714181153773896495, guid: 7d7d655d9adc5bc44b36970ed7806b79, type: 3}
+      propertyPath: next_portal_index
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7714181153773896495, guid: 7d7d655d9adc5bc44b36970ed7806b79, type: 3}
+      propertyPath: scene_name_to_load
+      value: 6 Aquaden
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d7d655d9adc5bc44b36970ed7806b79, type: 3}
 --- !u!1001 &1467914847

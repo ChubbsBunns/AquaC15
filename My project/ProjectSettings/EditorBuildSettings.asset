@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapLayout2.unity
     guid: a41e6ec38bfd1f449b50cb9d5de79ff9
+  - enabled: 1
+    path: Assets/Scenes/4 Nu's Room.unity
+    guid: d982c590ef90dd449ac2cb330812792b
   m_configObjects: {}

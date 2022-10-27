@@ -8,6 +8,9 @@ public class Enemy_Health : MonoBehaviour
     public GameObject death_effect;
     [SerializeField] Quest quest;
     bool dead = false;
+
+
+    [SerializeField] GameObject ParentIfAny = null;
     
     public virtual void Enemy_Take_Damage(int player_damage)
     {
@@ -17,10 +20,20 @@ public class Enemy_Health : MonoBehaviour
             if (dead!= true)
             {
                 Instantiate(death_effect, gameObject.transform.position, Quaternion.identity);
+ 
                 Debug.Log("This happened");
-                quest.goal.EnemyKilled();
+                if (quest != null && quest.goal != null)
+                {
+                    quest.goal.EnemyKilled();
+                }
+
                 dead = true;
-                Destroy(gameObject);            
+                if (ParentIfAny != null)
+                {
+                    Destroy(ParentIfAny);
+                }
+                Destroy(gameObject); 
+          
             }
 
         }

@@ -12,15 +12,11 @@ public class Ground_Enemy_Player_Check : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-                    Debug.Log("1") ;
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player detected") ;
             grnd_Enemy.followEnabled = true;
             grnd_Enemy.testThing(other.transform);
-                        Debug.Log("Set follow enabled to true") ;
             grnd_Enemy.SetTarget(other.transform);
-                        Debug.Log("set target to player") ;
         }
     }
 

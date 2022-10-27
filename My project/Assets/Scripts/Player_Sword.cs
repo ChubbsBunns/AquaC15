@@ -30,10 +30,16 @@ public class Player_Sword : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision);
         if (collision.CompareTag("Enemy"))
         {
+            Debug.Log("I have hit an enemy");
 //            Debug.Log("HIJNFSFD");
             Enemy_Health enemy_health = collision.gameObject.GetComponent<Enemy_Health>();
+            if (enemy_health == null)
+            {
+                Debug.Log("Enemy health cant be found");
+            }
             enemy_health.Enemy_Take_Damage(player_attack_damage);
         }
     }

@@ -73,6 +73,8 @@ public class PipeSceneThing : MonoBehaviour
 
     void LoadNextScene()
     {
+        Player_Controller_1 player = FindObjectOfType<Player_Controller_1>();
+        Destroy(player);
         SceneManager.LoadScene(nextSceneToLoad);
     }
 

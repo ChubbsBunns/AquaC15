@@ -32,7 +32,7 @@ public class Player_Sword : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("HIJNFSFD");
+//            Debug.Log("HIJNFSFD");
             Enemy_Health enemy_health = collision.gameObject.GetComponent<Enemy_Health>();
             enemy_health.Enemy_Take_Damage(player_attack_damage);
         }

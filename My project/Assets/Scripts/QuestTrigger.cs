@@ -11,8 +11,8 @@ public class QuestTrigger : MonoBehaviour
     if (collision.CompareTag("Player"))
         {
             questGiver.OpenQuestWindow();
-            Debug.Log("Player has entered");
+//            Debug.Log("Player has entered");
         }
-        Debug.Log("This isnt a player");
+//        Debug.Log("This isnt a player");
     }
 }

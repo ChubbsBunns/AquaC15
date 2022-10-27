@@ -7,7 +7,7 @@ public class Player_Controller_1 : MonoBehaviour
     [Header("Player States")]
     public bool is_jumping = false;
     public bool is_dashing = false;
-    public bool player_is_controllable = false;
+    public bool player_is_controllable = true;
     public bool is_airborne = false;
     public bool is_running = false;
 
@@ -138,9 +138,9 @@ public class Player_Controller_1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player_is_controllable)
+
         //Attack
-        {
+
             Sword_Attack();
             //Jump thing
             jump_count_placeholder = Mathf.Clamp(jump_count_placeholder, 1, max_number_of_jumps);
@@ -154,7 +154,7 @@ public class Player_Controller_1 : MonoBehaviour
             Am_I_Airborne();
             current_falling_speed = rb.velocity.y;
             current_gravity_scale = rb.gravityScale;
-        }
+
     
     }
 
@@ -185,7 +185,10 @@ public class Player_Controller_1 : MonoBehaviour
 //        Debug.Log("is_grounded is " + is_grounded);
 //        Debug.Log("is_airborne is " + is_airborne);
 //        Debug.Log("Math.Abs(horizontal_Input is " + Mathf.Abs(horizontal_Input));
-
+        if (player_is_controllable != true)
+        {
+            horizontal_Input = 0;
+        }
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || is_running || is_jumping || is_dashing )
         {
             current_Speed += acceleration * Time.deltaTime;

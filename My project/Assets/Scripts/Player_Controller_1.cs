@@ -180,9 +180,9 @@ public class Player_Controller_1 : MonoBehaviour
     {
         horizontal_Input = (int)Input.GetAxisRaw("Horizontal");
 
-        Debug.Log("is_grounded is " + is_grounded);
-        Debug.Log("is_airborne is " + is_airborne);
-        Debug.Log("Math.Abs(horizontal_Input is " + Mathf.Abs(horizontal_Input));
+//        Debug.Log("is_grounded is " + is_grounded);
+//        Debug.Log("is_airborne is " + is_airborne);
+//        Debug.Log("Math.Abs(horizontal_Input is " + Mathf.Abs(horizontal_Input));
 
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || is_running || is_jumping || is_dashing )
         {

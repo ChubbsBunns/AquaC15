@@ -16,6 +16,9 @@ public class portal : MonoBehaviour
     public Game_Management_Logs game_management_logs;
     // Start is called before the first frame update
 
+    [Header ("Miscellaneous")]
+    [SerializeField] private bool DoIDeletePlayer = false;
+
     private void Awake()
     {
         game_management_logs = FindObjectOfType<Game_Management_Logs>();
@@ -56,6 +59,10 @@ public class portal : MonoBehaviour
         {
             game_management_logs.portal_index_to_spawn_at = next_portal_index;
             //Application.LoadLevelAdditive(scene_name_to_load);
+            if (DoIDeletePlayer)
+            {
+                Destroy(collision.gameObject);
+            }
             SceneManager.LoadScene(scene_name_to_load);
         }
     }

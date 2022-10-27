@@ -20,6 +20,9 @@ public class portal : MonoBehaviour
 
     [SerializeField] bool doIDeletePlayer = false;
 
+    [Header ("Miscellaneous")]
+    [SerializeField] private bool DoIDeletePlayer = false;
+
     private void Awake()
     {
         game_management_logs = FindObjectOfType<Game_Management_Logs>();

@@ -29,6 +29,10 @@ public class Flying_Enemy_AI : MonoBehaviour
     // private bool caught = false;
     public void Start()
     {
+        if (target == null)
+        {
+            target = FindObjectOfType<Player_Controller_1>().transform;
+        }
         ai = this;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -61,10 +65,10 @@ public class Flying_Enemy_AI : MonoBehaviour
         }
 
         Vector2 direction = ((Vector2) path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Debug.Log("Direction is " + direction);
+//        Debug.Log("Direction is " + direction);
         Vector2 force = direction * speed * Time.deltaTime;
 
-        Debug.Log(rb.velocity);
+//        Debug.Log(rb.velocity);
 
         rb.velocity = force;
 //        rb.AddForce(force);

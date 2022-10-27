@@ -35,6 +35,10 @@ public class Ground_Enemy_AI : MonoBehaviour
     private bool caught = false;
     public void Start()
     {
+        if (target == null)
+        {
+            target = FindObjectOfType<Player_Controller_1>().transform;
+        }
         ai = this;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();

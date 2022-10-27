@@ -31375,7 +31375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   GFX: {fileID: 1101782597}
-  speed: 400
+  speed: 50
   nextWaypointDistance: 3
   maxForceAdded: 10
   rb: {fileID: 0}
@@ -32111,11 +32111,6 @@ MonoBehaviour:
   nextStart: {fileID: 0}
   enemy: {fileID: 247970915}
   textNo: -1
---- !u!4 &1820610744 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-  m_PrefabInstance: {fileID: 530874651}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1911906684
 GameObject:
   m_ObjectHideFlags: 0

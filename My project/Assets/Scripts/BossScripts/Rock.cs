@@ -8,8 +8,7 @@ public class Rock : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            Debug.Log("Rock Hit you");
-            //Do some damage to player knockback something
+            collision.GetComponent<Player_Health>().TakeDamage();
         }
         //Destroy a breakable object maybe
         Destroy(this.gameObject);

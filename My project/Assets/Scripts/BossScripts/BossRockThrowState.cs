@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class BossRockThrowState : BossState
 {
-    float timeForRockThrow = 5;
+    float timeForRockThrow;
     float time = 0;
     int count = 0;
     public override void BossEnterState(BossStateMachine boss)
     {
         boss.targetImage.SetActive(true);
+        timeForRockThrow = boss.timeForRockThrow;
     }
 
     public override void BossExitState(BossStateMachine boss)
     {
         boss.targetImage.SetActive(false);
         count = 0;
-        timeForRockThrow = 5;
     }
 
     public override void BossTakeDamage(BossStateMachine boss)
     {
-        throw new System.NotImplementedException();
     }
 
     public override void BossUpdate(BossStateMachine boss)
     {
+        //Moves target image to player and throws a rock after a period
         if(time < timeForRockThrow)
         {
             time += Time.deltaTime;
@@ -38,12 +38,17 @@ public class BossRockThrowState : BossState
         }
     }
 
+    public override void BossCollision(BossStateMachine boss, Collision2D collision)
+    {
+    }
+
     void ThrowRock(BossStateMachine boss)
     {
+        //Decreases time for next throw and increases count of rocks thrown this attack
         boss.ThrowRock();
-        timeForRockThrow -= 1;
+        timeForRockThrow -= boss.timeDecrementBetweenThrows;
         ++count;
-        if(count == 3)
+        if(count == boss.numRocksPerAttack)
         {
             boss.ChangeState(boss.bossChaseState);
         }

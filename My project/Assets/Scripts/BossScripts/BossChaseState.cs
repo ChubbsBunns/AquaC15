@@ -6,9 +6,9 @@ public class BossChaseState : BossState
 {
     float time = 0;
 
-    // Start is called before the first frame update
     public override void BossUpdate(BossStateMachine boss)
     {
+        //Chases player and attacks after a period of time
         if(time < boss.timeBetweenAttacks)
         {
             time += Time.deltaTime;
@@ -18,7 +18,7 @@ public class BossChaseState : BossState
             boss.ChangeState(boss.bossWindUpState);
         }
         Vector2 dir = boss.player.transform.position - boss.transform.position;
-        if(dir.x < 0)
+        if (dir.x < 0)
         {
             //Boss towards the right
             boss.rb.velocity = new Vector2(-boss.bossSpeed, 0);
@@ -43,8 +43,11 @@ public class BossChaseState : BossState
 
     public override void BossExitState(BossStateMachine boss)
     {
-        
     }
 
-    
+    public override void BossCollision(BossStateMachine boss, Collision2D collision)
+    {
+    }
+
+
 }

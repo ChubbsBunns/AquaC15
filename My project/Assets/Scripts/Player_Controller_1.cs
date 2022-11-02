@@ -372,7 +372,8 @@ public class Player_Controller_1 : MonoBehaviour
 
     void Flip()
     {
-        transform.localScale = new Vector3(-(float)transform.localScale.x, transform.localScale.z, transform.localScale.z);
+        // transform.localScale = new Vector3(-(float)transform.localScale.x, transform.localScale.z, transform.localScale.z);
+        transform.Rotate(0f, 180f, 0f);
         facing_Right = !facing_Right;
         current_Speed = 0;
     }

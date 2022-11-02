@@ -33,6 +33,7 @@ public class Ground_Enemy_AI : MonoBehaviour
     [SerializeField] Queue<Transform> targets = new Queue<Transform>();
     public Ground_Enemy_AI ai;
     private bool caught = false;
+    public bool facingLeft = true;
     public void Start()
     {
         if (target == null)
@@ -69,8 +70,18 @@ public class Ground_Enemy_AI : MonoBehaviour
 
     public void FaceDirection(bool faceLeft)
     {
-        if (faceLeft) { transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); }
-        else { transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); }
+        if (faceLeft)
+        {
+            // transform.Rotate(0f, 180f, 0f);
+            transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            facingLeft = true;
+        }
+        else 
+        {
+            // transform.Rotate(0f, 180f, 0f);
+            facingLeft = false;
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
     }
 
     public void StopFollowing()
@@ -157,14 +168,6 @@ public class Ground_Enemy_AI : MonoBehaviour
         if(directionLookEnabled)
         {
             FaceDirection(rb.velocity.x < -0.05f);
-            /*if(rb.velocity.x > 0.05f)
-            {
-                //transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
-            else if(rb.velocity.x < -0.05f)
-            {
-                transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }*/
         }
     }
 

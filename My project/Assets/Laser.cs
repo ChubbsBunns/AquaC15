@@ -21,14 +21,13 @@ public class Laser : MonoBehaviour
     void OnTriggerEnter2D (Collider2D hitInfo)
     {
         Player_Health player = hitInfo.transform.GetComponent<Player_Health>();
-        Grid g = hitInfo.transform.GetComponent<Grid>();
             if (player != null)
             {
                 Debug.Log("Impact with Player");
                 player.TakeDamage();
                 Instantiate(impactEffect, transform.position, transform.rotation);
                 Destroy(gameObject);
-            } else if (g != null)
+            } else if (hitInfo.gameObject.name == "Tilemap")
             { 
                 Instantiate(impactEffect, transform.position, transform.rotation);
                 Destroy(gameObject);

@@ -6,6 +6,11 @@ public class Laser : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject impactEffect;
 
+    void Start()
+    {
+        Physics2D.IgnoreLayerCollision(1, 3);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -16,17 +21,17 @@ public class Laser : MonoBehaviour
     void OnTriggerEnter2D (Collider2D hitInfo)
     {
         Player_Health player = hitInfo.transform.GetComponent<Player_Health>();
+        Grid g = hitInfo.transform.GetComponent<Grid>();
             if (player != null)
             {
                 Debug.Log("Impact with Player");
                 player.TakeDamage();
-            } else
+                Instantiate(impactEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
+            } else if (g != null)
             { 
-                Debug.Log("Impact with " + hitInfo.name);
+                Instantiate(impactEffect, transform.position, transform.rotation);
+                Destroy(gameObject);
             }
-
-        Instantiate(impactEffect, transform.position, transform.rotation);
-
-        Destroy(gameObject);
     }
 }

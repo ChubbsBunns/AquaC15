@@ -31522,6 +31522,10 @@ PrefabInstance:
       value: GroundTriggerPoint (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1067548571042890556, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067548571042890556, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -31535,11 +31539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1067548571042890557, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.64
+      value: 2.66
       objectReference: {fileID: 0}
     - target: {fileID: 1067548571042890557, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.88
+      value: 0.89
       objectReference: {fileID: 0}
     - target: {fileID: 1067548571042890557, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31771,6 +31775,10 @@ PrefabInstance:
       value: GroundTriggerPoint (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1067548571042890556, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1067548571042890556, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -31784,11 +31792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1067548571042890557, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.79
+      value: -2.23
       objectReference: {fileID: 0}
     - target: {fileID: 1067548571042890557, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 1067548571042890557, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -32095,7 +32103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1454060820}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32128,7 +32136,7 @@ GameObject:
   - component: {fileID: 1550958554}
   - component: {fileID: 1550958553}
   - component: {fileID: 1550958555}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: bring some lightning
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -32169,7 +32177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550958552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.1, y: -0.61, z: 0}
+  m_LocalPosition: {x: -16.4, y: 0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

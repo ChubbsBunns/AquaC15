@@ -6,7 +6,6 @@ public class Weapon : MonoBehaviour
     public Ground_Enemy_AI ai;
     public GameObject laserPrefab;
     public bool isLeft = true;
-
     public bool shouldRaycast = false;
 
     // Update is called once per frame

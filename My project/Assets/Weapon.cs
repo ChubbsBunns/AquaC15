@@ -6,12 +6,12 @@ public class Weapon : MonoBehaviour
     public Ground_Enemy_AI ai;
     public GameObject laserPrefab;
     public bool isLeft = true;
-    public bool shouldRaycast = false;
+    public bool shouldRaycast = true;
 
     // Update is called once per frame
     void Update()
     {
-        Flip();
+        // Flip();
         if (shouldRaycast) {
             RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.right);
             if (hitInfo)

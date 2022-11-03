@@ -27,6 +27,7 @@ public class Flying_Enemy_AI : MonoBehaviour
     // Queue<Transform> targets = new Queue<Transform>();
     public Flying_Enemy_AI ai;
     // private bool caught = false;
+    public bool findPlayer = false;
     public void Start()
     {
         if (target == null)
@@ -52,42 +53,45 @@ public class Flying_Enemy_AI : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (path == null)
-            return;
-
-        if (currentWaypoint >= path.vectorPath.Count) 
+        if (findPlayer)
         {
-            reachedEndOfPath = true;
-            return;
-        } else
-        {
-            reachedEndOfPath = false;
-        }
+            if (path == null)
+                return;
 
-        Vector2 direction = ((Vector2) path.vectorPath[currentWaypoint] - rb.position).normalized;
-//        Debug.Log("Direction is " + direction);
-        Vector2 force = direction * speed * Time.deltaTime;
+            if (currentWaypoint >= path.vectorPath.Count) 
+            {
+                reachedEndOfPath = true;
+                return;
+            } else
+            {
+                reachedEndOfPath = false;
+            }
 
-//        Debug.Log(rb.velocity);
+            Vector2 direction = ((Vector2) path.vectorPath[currentWaypoint] - rb.position).normalized;
+    //        Debug.Log("Direction is " + direction);
+            Vector2 force = direction * speed * Time.deltaTime;
 
-        rb.velocity = force;
-//        rb.AddForce(force);
+    //        Debug.Log(rb.velocity);
 
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+            rb.velocity = force;
+    //        rb.AddForce(force);
 
-        if (distance < nextWaypointDistance)
-        {
-            currentWaypoint++;
-        }
+            float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
-        if(force.x <= -0.01f)
-        {
-            // Face Left
-            GFX.localScale = new Vector3(-1f, 1f, 1f);
-        } else if(force.x >= 0.01f)
-        {
-            // Face Right
-            GFX.localScale = new Vector3(1f, 1f, 1f);
+            if (distance < nextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
+
+            if(force.x <= -0.01f)
+            {
+                // Face Left
+                GFX.localScale = new Vector3(-1f, 1f, 1f);
+            } else if(force.x >= 0.01f)
+            {
+                // Face Right
+                GFX.localScale = new Vector3(1f, 1f, 1f);
+            }
         }
     }
 

@@ -785,9 +785,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hearts: 5
   hitImmunityTime: 2
+  onHitShakeIntensity: 3
+  onHitShakeDuration: 0.1
   healthyHeart: {fileID: 21300000, guid: 759321682aae4a940a4f72ff85450ec4, type: 3}
   damagedHeart: {fileID: 21300000, guid: df3ca2e6ef2707f45b652db86c9b078d, type: 3}
   heartsUIParent: {fileID: 988440502}
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  flashRedMaterial: {fileID: 2100000, guid: d1f8c41af4dac5c4bafcf7982c865aed, type: 2}
+  timeFlashRed: 0.1
+  immunityOpacity: 0.5
 --- !u!1 &8228328445682389222
 GameObject:
   m_ObjectHideFlags: 0

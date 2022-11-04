@@ -8426,13 +8426,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9050417766357894066, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: onHitShakeDuration
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9050417766357894066, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: onHitShakeIntensity
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}

@@ -249,6 +249,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9150847162570761732, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
+      propertyPath: portal_index
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150847162570761732, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
+      propertyPath: next_portal_index
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150847162570761732, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
+      propertyPath: scene_name_to_load
+      value: MapLayout2
+      objectReference: {fileID: 0}
     - target: {fileID: 9150847162570761733, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
       propertyPath: m_Name
       value: portal

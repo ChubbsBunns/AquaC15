@@ -18,6 +18,10 @@ public class MineableObject : MonoBehaviour
 
     int spriteIndex = 0;
 
+    private void Start() {
+        //quest = FindObjectOfType<Quest>();
+    }
+
     //Called by player when mining this object, to be ovewritten by other classes to perform different behaviours
     public virtual void Mine()  
     {
@@ -34,6 +38,7 @@ public class MineableObject : MonoBehaviour
         ++spriteIndex;
         if(spriteIndex >= sprites.Length)
         {
+            Debug.Log("I have finished mining");
             Destroy(this.gameObject);
             quest.goal.MineMined();
         }

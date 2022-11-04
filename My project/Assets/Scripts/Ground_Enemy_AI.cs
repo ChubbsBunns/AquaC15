@@ -30,11 +30,16 @@ public class Ground_Enemy_AI : MonoBehaviour
     Seeker seeker;
     public Rigidbody2D rb;
 
-    Queue<Transform> targets = new Queue<Transform>();
+    [SerializeField] Queue<Transform> targets = new Queue<Transform>();
     public Ground_Enemy_AI ai;
     private bool caught = false;
+    public bool facingLeft = true;
     public void Start()
     {
+        if (target == null)
+        {
+            target = FindObjectOfType<Player_Controller_1>().transform;
+        }
         ai = this;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -43,7 +48,7 @@ public class Ground_Enemy_AI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(TargetInDistance() && followEnabled)
+        if(TargetInDistance() && followEnabled && target != null)
         {
             PathFollow();
         }
@@ -51,11 +56,12 @@ public class Ground_Enemy_AI : MonoBehaviour
 
     private void UpdatePath()
     {
-        if(followEnabled && TargetInDistance() && seeker.IsDone())
+        if(followEnabled && TargetInDistance() && seeker.IsDone() && (target != null))
         {
+
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
-    }
+    } 
 
     public void Jump()
     {
@@ -64,8 +70,18 @@ public class Ground_Enemy_AI : MonoBehaviour
 
     public void FaceDirection(bool faceLeft)
     {
-        if (faceLeft) { transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); }
-        else { transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); }
+        if (faceLeft)
+        {
+            // transform.Rotate(0f, 180f, 0f);
+            transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            facingLeft = true;
+        }
+        else 
+        {
+            // transform.Rotate(0f, 180f, 0f);
+            facingLeft = false;
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
     }
 
     public void StopFollowing()
@@ -82,13 +98,22 @@ public class Ground_Enemy_AI : MonoBehaviour
 
     public void SetTarget(Transform newTarget)
     {
-        if (caught) { return; }
+        if (caught) { 
+                        Debug.Log("caught") ;
+            return; }
         targets.Enqueue(newTarget);
         if (!followEnabled)
         {
+                        Debug.Log("set target") ;
             target = targets.Dequeue();
             followEnabled = true;
         }
+    }
+
+    public void testThing(Transform targetThing)
+    {
+        followEnabled = true;
+        target = targetThing;
     }
 
     public void Caught()
@@ -143,14 +168,6 @@ public class Ground_Enemy_AI : MonoBehaviour
         if(directionLookEnabled)
         {
             FaceDirection(rb.velocity.x < -0.05f);
-            /*if(rb.velocity.x > 0.05f)
-            {
-                //transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
-            else if(rb.velocity.x < -0.05f)
-            {
-                transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }*/
         }
     }
 
@@ -165,6 +182,19 @@ public class Ground_Enemy_AI : MonoBehaviour
         {
             path = p;
             currentWaypoint = 0;
+        }
+    }
+
+    private void FollowSpecificTarget(Transform FollowThis)
+    {
+        target = FollowThis;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Player"))
+        {
+            Player_Health player_health = other.GetComponent<Player_Health>();
+            player_health.TakeDamage();
         }
     }
 }

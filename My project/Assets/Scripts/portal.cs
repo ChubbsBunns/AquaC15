@@ -16,6 +16,14 @@ public class portal : MonoBehaviour
     public Game_Management_Logs game_management_logs;
     // Start is called before the first frame update
 
+    [Header("Misc")]
+
+    [SerializeField] bool doIDeletePlayer = false;
+
+    [Header ("Miscellaneous")]
+    [SerializeField] private bool DoIDeletePlayer = false;
+    [SerializeField] bool babyNuScene = false;
+
     private void Awake()
     {
         game_management_logs = FindObjectOfType<Game_Management_Logs>();
@@ -33,6 +41,12 @@ public class portal : MonoBehaviour
                 Debug.Log("Game Management Log is found");
             }
             Player_Controller_1 playerObject = FindObjectOfType<Player_Controller_1>();
+            if (babyNuScene)
+            {
+                Baby_Nu_Controller playerAlso = FindObjectOfType<Baby_Nu_Controller>();
+                playerAlso.TransformChangeMoveMeHere(transform_portal.transform);
+            }
+
             if (playerObject == null)
             {
                 Debug.Log("Portal does not instantiate player");
@@ -55,6 +69,10 @@ public class portal : MonoBehaviour
         if (collision.tag == "Player")
         {
             game_management_logs.portal_index_to_spawn_at = next_portal_index;
+            if (doIDeletePlayer)
+            {
+                Destroy(collision.gameObject);
+            }
             //Application.LoadLevelAdditive(scene_name_to_load);
             SceneManager.LoadScene(scene_name_to_load);
         }

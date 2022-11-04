@@ -44,13 +44,25 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
+  <PropertyGroup>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UnityProjectGenerator>Package</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>2.0.16</UnityProjectGeneratorVersion>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
+    <UnityVersion>2021.3.9f1</UnityVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Ground_AI_Start.cs" />
     <Compile Include="Assets\Scripts\CreiddyIntro.cs" />
+    <Compile Include="Assets\Scripts\AquaDenPipe.cs" />
     <Compile Include="Assets\Scripts\Friend_Caught.cs" />
     <Compile Include="Assets\Scripts\AI_Start_Chase.cs" />
     <Compile Include="Assets\Scripts\AI_Start_Chase_Ground.cs" />
-    <Compile Include="Assets\AquamiteInstantiator.cs" />
+    <Compile Include="Assets\Scripts\AquamiteInstantiator.cs" />
     <Compile Include="Assets\Scripts\QuestWindow.cs" />
     <Compile Include="Assets\Scripts\QuestGiver.cs" />
     <Compile Include="Assets\Scripts\Friend_AI.cs" />
@@ -61,51 +73,88 @@
     <Compile Include="Assets\Scripts\BossScripts\BossStateMachine.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossPowerDashState.cs" />
     <Compile Include="Assets\Scripts\AI_Start.cs" />
+    <Compile Include="Assets\Scripts\ZoomInZoomOutColliders.cs" />
     <Compile Include="Assets\Scripts\Cinemachine_Editor.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
-    <Compile Include="Assets\AquaHouse.cs" />
+    <Compile Include="Assets\Scripts\CutSceneManager.cs" />
+    <Compile Include="Assets\Scripts\AquaHouse.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossGroundPoundState.cs" />
     <Compile Include="Assets\Scripts\Ground_Enemy_AI.cs" />
+    <Compile Include="Assets\Scripts\DeleteStuff.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossWindUpState.cs" />
-    <Compile Include="Assets\Baby_Nu_Controller.cs" />
+    <Compile Include="Assets\Scripts\Baby_Nu_Controller.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossChaseState.cs" />
     <Compile Include="Assets\Scripts\Trigger.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossRockThrowState.cs" />
     <Compile Include="Assets\Scripts\Game_Management_Logs.cs" />
     <Compile Include="Assets\Scripts\Player_Controller_1.cs" />
     <Compile Include="Assets\Scripts\Ground_AI_Move_On.cs" />
+    <Compile Include="Assets\Weapon.cs" />
+    <Compile Include="Assets\Main_Menu.cs" />
+    <Compile Include="Assets\Ground_Enemy_Player_Check.cs" />
     <Compile Include="Assets\Scripts\Flying_Enemy_AI.cs" />
     <Compile Include="Assets\Scripts\SpeakerManager.cs" />
     <Compile Include="Assets\Scripts\CinemachineCameraShake.cs" />
+    <Compile Include="Assets\Scripts\AquaMiteColourController.cs" />
+    <Compile Include="Assets\SpeechController.cs" />
     <Compile Include="Assets\Scripts\Player_Mine.cs" />
+    <Compile Include="Assets\Scripts\Scroller.cs" />
     <Compile Include="Assets\Scripts\MineableObject.cs" />
+    <Compile Include="Assets\ImpactDestroy.cs" />
     <Compile Include="Assets\Scripts\Ground_Enemy_AI_Jump.cs" />
     <Compile Include="Assets\Scripts\AI_Stop.cs" />
     <Compile Include="Assets\Scripts\AIJump.cs" />
+    <Compile Include="Assets\Scripts\Patrol_Object.cs" />
     <Compile Include="Assets\Scripts\Flying_AI.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossIdleState.cs" />
-    <Compile Include="Assets\TriggerPoint.cs" />
-    <Compile Include="Assets\AquaMite_Going_To_Work.cs" />
+    <Compile Include="Assets\Scripts\TriggerPoint.cs" />
+    <Compile Include="Assets\Scripts\PipeScene.cs" />
+    <Compile Include="Assets\Scripts\AquaMite_Going_To_Work.cs" />
+    <Compile Include="Assets\PipeScene.cs" />
     <Compile Include="Assets\Scripts\Quest.cs" />
     <Compile Include="Assets\Scripts\AI_SetDrag.cs" />
     <Compile Include="Assets\Scripts\BossScripts\Rock.cs" />
     <Compile Include="Assets\Scripts\portal.cs" />
     <Compile Include="Assets\Scripts\Player_Health.cs" />
-    <Compile Include="Assets\BringSomeLightning.cs" />
+    <Compile Include="Assets\Scripts\BringSomeLightning.cs" />
     <Compile Include="Assets\Scripts\MoneyCanvas.cs" />
     <Compile Include="Assets\Scripts\Flying_AI_Trigger.cs" />
     <Compile Include="Assets\Scripts\Enemy_Health.cs" />
-    <Compile Include="Assets\Flying_Enemy_GFX.cs" />
+    <Compile Include="Assets\Scripts\AquaMiteWorkerRoute.cs" />
+    <Compile Include="Assets\Scripts\Flying_Enemy_GFX.cs" />
     <Compile Include="Assets\Scripts\Flying_AI_Flip.cs" />
     <Compile Include="Assets\Scripts\BossScripts\BossState.cs" />
+    <Compile Include="Assets\QuitApplicationHandler.cs" />
     <Compile Include="Assets\Scripts\AI_Start_Chase_Flying.cs" />
+    <Compile Include="Assets\Laser.cs" />
     <Compile Include="Assets\Scripts\BossScripts\FallingRock.cs" />
     <Compile Include="Assets\Scripts\Player_Sword.cs" />
     <Compile Include="Assets\Scripts\Sword.cs" />
     <Compile Include="Assets\Scripts\Intro_Trigger_Point.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Tiles\Pixel2DCastleTileset\about.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

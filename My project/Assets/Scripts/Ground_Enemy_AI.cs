@@ -190,10 +190,11 @@ public class Ground_Enemy_AI : MonoBehaviour
         target = FollowThis;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player"))
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
-            Player_Health player_health = other.GetComponent<Player_Health>();
+            Player_Health player_health = other.gameObject.GetComponent<Player_Health>();
             player_health.TakeDamage();
         }
     }

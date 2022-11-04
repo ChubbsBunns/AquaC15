@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 7875575397285649742}
   - component: {fileID: 7875575397285649729}
   - component: {fileID: 414379651}
-  - component: {fileID: 9050417766357894066}
+  - component: {fileID: -5327815620271697539}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -714,6 +714,7 @@ MonoBehaviour:
   ground_check_front: {fileID: 7875575396438530372}
   ground_check_back: {fileID: 7875575396773644938}
   ground_check_top: {fileID: 4404250173761432182}
+  PlayerCollider: {fileID: 0}
   distance_to_ground: 0
   ground_check_raycast_threshold: 0.001
   current_gravity_scale: 0
@@ -771,7 +772,8 @@ MonoBehaviour:
     m_Bits: 1024
   radius: 1
   timeBetweenMine: 1
---- !u!114 &9050417766357894066
+  anim: {fileID: 0}
+--- !u!114 &-5327815620271697539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

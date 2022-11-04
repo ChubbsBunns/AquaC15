@@ -7,7 +7,7 @@ public class Player_Controller_1 : MonoBehaviour
     [Header("Player States")]
     public bool is_jumping = false;
     public bool is_dashing = false;
-    public bool player_is_controllable = false;
+    public bool player_is_controllable = true;
     public bool is_airborne = false;
     public bool is_running = false;
 
@@ -54,6 +54,8 @@ public class Player_Controller_1 : MonoBehaviour
     public Transform ground_check_back;
     //gorund check top is only meant for jumping stoppages upon hitting a ceiling
     public Transform ground_check_top;
+
+    public Collider2D PlayerCollider;
 
     [Header("Ground RayCasts")]
     RaycastHit2D ground_hit;
@@ -112,7 +114,7 @@ public class Player_Controller_1 : MonoBehaviour
     {
         //This is a placeholder for health
         health = 5;
-         
+         PlayerCollider = GetComponent<Collider2D>();
          
         acceleration = max_horizontal_speed / time_from_zero_to_max_horizontal_speed;
         deceleration = max_horizontal_speed / time_from_max_horizontal_speed_to_zero;
@@ -136,9 +138,9 @@ public class Player_Controller_1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player_is_controllable)
+
         //Attack
-        {
+
             Sword_Attack();
             //Jump thing
             jump_count_placeholder = Mathf.Clamp(jump_count_placeholder, 1, max_number_of_jumps);
@@ -152,7 +154,7 @@ public class Player_Controller_1 : MonoBehaviour
             Am_I_Airborne();
             current_falling_speed = rb.velocity.y;
             current_gravity_scale = rb.gravityScale;
-        }
+
     
     }
 
@@ -180,10 +182,13 @@ public class Player_Controller_1 : MonoBehaviour
     {
         horizontal_Input = (int)Input.GetAxisRaw("Horizontal");
 
-        Debug.Log("is_grounded is " + is_grounded);
-        Debug.Log("is_airborne is " + is_airborne);
-        Debug.Log("Math.Abs(horizontal_Input is " + Mathf.Abs(horizontal_Input));
-
+//        Debug.Log("is_grounded is " + is_grounded);
+//        Debug.Log("is_airborne is " + is_airborne);
+//        Debug.Log("Math.Abs(horizontal_Input is " + Mathf.Abs(horizontal_Input));
+        if (player_is_controllable != true)
+        {
+            horizontal_Input = 0;
+        }
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || is_running || is_jumping || is_dashing )
         {
             current_Speed += acceleration * Time.deltaTime;
@@ -367,7 +372,8 @@ public class Player_Controller_1 : MonoBehaviour
 
     void Flip()
     {
-        transform.localScale = new Vector3(-(float)transform.localScale.x, transform.localScale.z, transform.localScale.z);
+        // transform.localScale = new Vector3(-(float)transform.localScale.x, transform.localScale.z, transform.localScale.z);
+        transform.Rotate(0f, 180f, 0f);
         facing_Right = !facing_Right;
         current_Speed = 0;
     }
@@ -396,7 +402,7 @@ public class Player_Controller_1 : MonoBehaviour
     {        
         if (Input.GetButtonDown("Fire1") && able_to_attack)
         {
-            Debug.Log("I am able to sense sword attack button and isabletoattack");
+//            Debug.Log("I am able to sense sword attack button and isabletoattack");
             if (Input.GetButton("Up"))
             {
                 player_slash.StartUpAttack();
@@ -441,6 +447,17 @@ public class Player_Controller_1 : MonoBehaviour
         return value * value;
     }
 
+
+    //Collision management relative to player
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+//        Debug.Log(other);
+        if (other.gameObject.CompareTag("AquaMites"))
+        {
+            Collider2D AquaMiteCollider2D = other.gameObject.GetComponent<Collider2D>();
+            Physics2D.IgnoreCollision(AquaMiteCollider2D, PlayerCollider);
+        }    
+    }
     
 
 

@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 716622793}
   nextStop: {fileID: 716622794}
-  ai: {fileID: 1239488209}
+  ai: {fileID: 0}
 --- !u!1 &43280063
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ Transform:
   - {fileID: 1982665868}
   - {fileID: 1081734289}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &49020419
 GameObject:
@@ -263,6 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 49020420}
+  - component: {fileID: 49020421}
   m_Layer: 0
   m_Name: FireMiteAI
   m_TagString: Untagged
@@ -286,8 +287,31 @@ Transform:
   - {fileID: 1239488214}
   - {fileID: 1548682964}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &49020421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49020419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9edb7afbc2015449b6794af281d2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints: []
+  speed: 0
+  AquamiteRoute: {fileID: 0}
+  AquamiteInstantiatorThing: {fileID: 0}
+  lower_bound_speed: 0
+  upper_bound_speed: 0
+  currentPointIndex: 0
+  move: 0
+  timeToWaitToMove: 0
+  damageIDealToPlayer: 0
+  thisCollider: {fileID: 0}
 --- !u!1001 &66600562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -382,7 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 1807997411}
   nextStop: {fileID: 1807997414}
-  ai: {fileID: 2102391631}
+  ai: {fileID: 0}
 --- !u!1001 &66766864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -644,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 685751825}
-  ai: {fileID: 1063671088}
+  ai: {fileID: 0}
 --- !u!1 &106634747
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,7 +678,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 106634748}
-  - component: {fileID: 106634750}
   - component: {fileID: 106634749}
   m_Layer: 0
   m_Name: LeafPatrolPoint (4)
@@ -704,20 +727,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &106634750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106634747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f126fe88818c2924aa242d42e6b7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ai: {fileID: 1707002287}
-  isFlip: 0
 --- !u!1001 &219503394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -731,7 +740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5389307377156470791, guid: 3c9bb51988c2bfc409ab2912514adfe7, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5389307377156470791, guid: 3c9bb51988c2bfc409ab2912514adfe7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17162,7 +17171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3415032067667474482, guid: 88474a28bc568d442914904dd5be359a, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3415032067667474482, guid: 88474a28bc568d442914904dd5be359a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17218,6 +17227,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9150847162570761732, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
+      propertyPath: doIDeletePlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9150847162570761732, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
       propertyPath: next_portal_index
       value: 4
       objectReference: {fileID: 0}
@@ -17235,7 +17248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9150847162570761737, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9150847162570761737, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17381,7 +17394,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 421078845}
-  - component: {fileID: 421078847}
   - component: {fileID: 421078846}
   m_Layer: 0
   m_Name: LeafPatrolPoint (9)
@@ -17431,20 +17443,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &421078847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 421078844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f126fe88818c2924aa242d42e6b7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ai: {fileID: 1707002287}
-  isFlip: 0
 --- !u!1001 &462202127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17539,7 +17537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 1929482257}
   nextStop: {fileID: 1929482258}
-  ai: {fileID: 1063671088}
+  ai: {fileID: 0}
 --- !u!1 &525728664
 GameObject:
   m_ObjectHideFlags: 0
@@ -17574,107 +17572,6 @@ Transform:
   m_Father: {fileID: 43280064}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &526155188
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1535288210, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575396438530371, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575396702547807, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575396773644937, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575396888807104, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649728, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649739, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649739, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649742, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: jump_threshold
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649742, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: max_number_of_jumps
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7875575397285649742, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: max_horizontal_speed
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8228328445682389222, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 409be3f8405e9b143a10b06390c6fadb, type: 3}
 --- !u!1 &584120998
 GameObject:
   m_ObjectHideFlags: 0
@@ -17732,7 +17629,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584120998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -17760,7 +17657,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 614327209}
-  - component: {fileID: 614327211}
   - component: {fileID: 614327210}
   m_Layer: 0
   m_Name: LeafPatrolPoint (3)
@@ -17810,20 +17706,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &614327211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614327208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f126fe88818c2924aa242d42e6b7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ai: {fileID: 1707002287}
-  isFlip: 0
 --- !u!1 &640719506
 GameObject:
   m_ObjectHideFlags: 0
@@ -17833,7 +17715,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 640719507}
-  - component: {fileID: 640719509}
   - component: {fileID: 640719508}
   m_Layer: 0
   m_Name: LeafPatrolPoint (7)
@@ -17883,20 +17764,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &640719509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640719506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f126fe88818c2924aa242d42e6b7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ai: {fileID: 1707002287}
-  isFlip: 1
 --- !u!1001 &685751824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17991,7 +17858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 892528281}
   nextStop: {fileID: 892528282}
-  ai: {fileID: 1063671088}
+  ai: {fileID: 0}
 --- !u!1 &707463145
 GameObject:
   m_ObjectHideFlags: 0
@@ -18063,7 +17930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eea1010edd0e5ea4abf7fa496456a1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ai: {fileID: 1707002287}
+  ai: {fileID: 0}
 --- !u!1001 &716622791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18158,7 +18025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 745677832}
   nextStop: {fileID: 745677836}
-  ai: {fileID: 1239488209}
+  ai: {fileID: 0}
 --- !u!1001 &745677831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18253,7 +18120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 1146343834}
   nextStop: {fileID: 1146343835}
-  ai: {fileID: 1239488209}
+  ai: {fileID: 0}
 --- !u!1 &822574263
 GameObject:
   m_ObjectHideFlags: 0
@@ -18379,7 +18246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 1108537740}
   nextStop: {fileID: 1108537741}
-  ai: {fileID: 1063671088}
+  ai: {fileID: 0}
 --- !u!1 &957946516
 GameObject:
   m_ObjectHideFlags: 0
@@ -18429,7 +18296,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 971114038}
-  - component: {fileID: 971114040}
   - component: {fileID: 971114039}
   m_Layer: 0
   m_Name: LeafPatrolPoint (2)
@@ -18479,20 +18345,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &971114040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 971114037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f126fe88818c2924aa242d42e6b7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ai: {fileID: 1707002287}
-  isFlip: 0
 --- !u!1 &1012480318
 GameObject:
   m_ObjectHideFlags: 0
@@ -18578,7 +18430,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1045807987
 GameObject:
@@ -18773,7 +18625,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1053721010}
-  - component: {fileID: 1053721012}
   - component: {fileID: 1053721011}
   m_Layer: 0
   m_Name: LeafPatrolPoint (5)
@@ -18823,20 +18674,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1053721012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053721009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f126fe88818c2924aa242d42e6b7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ai: {fileID: 1707002287}
-  isFlip: 0
 --- !u!1 &1063671087
 GameObject:
   m_ObjectHideFlags: 0
@@ -18849,8 +18686,7 @@ GameObject:
   - component: {fileID: 1063671092}
   - component: {fileID: 1063671091}
   - component: {fileID: 1063671090}
-  - component: {fileID: 1063671089}
-  - component: {fileID: 1063671088}
+  - component: {fileID: 1063671094}
   m_Layer: 8
   m_Name: Water
   m_TagString: Untagged
@@ -18858,63 +18694,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1063671088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063671087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b31821f5a0d74e44c9744261921e9c2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  activateDistance: 50
-  pathUpdateSeconds: 0.5
-  speed: 400
-  nextWaypointDistance: 3
-  jumpNodeHeightRequirement: 0.2
-  jumpModifier: 1
-  jumpCheckOffset: 0.1
-  feet: {fileID: 1780242755}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  followEnabled: 0
-  jumpEnabled: 1
-  directionLookEnabled: 1
-  rb: {fileID: 0}
-  ai: {fileID: 0}
---- !u!114 &1063671089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1063671087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!70 &1063671090
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -18993,7 +18772,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bee302bccf1c1041a151cef5cb3caa3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c370da31a85efed42a39537e5beeea21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -19021,6 +18800,35 @@ Transform:
   m_Father: {fileID: 1179308862}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1063671094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063671087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9edb7afbc2015449b6794af281d2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints:
+  - {fileID: 685751825}
+  - {fileID: 892528281}
+  - {fileID: 1108537740}
+  - {fileID: 1165982651}
+  - {fileID: 462202129}
+  - {fileID: 1929482257}
+  speed: 10
+  AquamiteRoute: {fileID: 0}
+  AquamiteInstantiatorThing: {fileID: 0}
+  lower_bound_speed: 0
+  upper_bound_speed: 0
+  currentPointIndex: 0
+  move: 0
+  timeToWaitToMove: 0
+  damageIDealToPlayer: 0
+  thisCollider: {fileID: 0}
 --- !u!1001 &1081734288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19225,7 +19033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 1165982651}
   nextStop: {fileID: 1165982652}
-  ai: {fileID: 1063671088}
+  ai: {fileID: 0}
 --- !u!1001 &1146343832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19320,7 +19128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 2077658430}
   nextStop: {fileID: 2077658431}
-  ai: {fileID: 1239488209}
+  ai: {fileID: 0}
 --- !u!1001 &1165982649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19415,7 +19223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 462202129}
   nextStop: {fileID: 462202130}
-  ai: {fileID: 1063671088}
+  ai: {fileID: 0}
 --- !u!1 &1179308861
 GameObject:
   m_ObjectHideFlags: 0
@@ -19448,7 +19256,7 @@ Transform:
   - {fileID: 1063671093}
   - {fileID: 101463745}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1181847361
 GameObject:
@@ -19568,8 +19376,7 @@ GameObject:
   - component: {fileID: 1239488213}
   - component: {fileID: 1239488212}
   - component: {fileID: 1239488211}
-  - component: {fileID: 1239488210}
-  - component: {fileID: 1239488209}
+  - component: {fileID: 1239488215}
   m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
@@ -19577,63 +19384,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1239488209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239488208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b31821f5a0d74e44c9744261921e9c2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  activateDistance: 50
-  pathUpdateSeconds: 0.5
-  speed: 750
-  nextWaypointDistance: 3
-  jumpNodeHeightRequirement: 0.2
-  jumpModifier: 0.8
-  jumpCheckOffset: 0.1
-  feet: {fileID: 1437561591}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  followEnabled: 0
-  jumpEnabled: 1
-  directionLookEnabled: 1
-  rb: {fileID: 0}
-  ai: {fileID: 0}
---- !u!114 &1239488210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239488208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!70 &1239488211
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -19712,7 +19462,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bee302bccf1c1041a151cef5cb3caa3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6225c4101f3052b448c2297e0648e1ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -19740,6 +19490,36 @@ Transform:
   m_Father: {fileID: 49020420}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1239488215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239488208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9edb7afbc2015449b6794af281d2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints:
+  - {fileID: 745677832}
+  - {fileID: 1146343834}
+  - {fileID: 2077658430}
+  - {fileID: 1730321134}
+  - {fileID: 2019269488}
+  - {fileID: 28823993}
+  - {fileID: 716622793}
+  speed: 15
+  AquamiteRoute: {fileID: 0}
+  AquamiteInstantiatorThing: {fileID: 0}
+  lower_bound_speed: 0
+  upper_bound_speed: 0
+  currentPointIndex: 0
+  move: 0
+  timeToWaitToMove: 0
+  damageIDealToPlayer: 0
+  thisCollider: {fileID: 0}
 --- !u!1001 &1282045992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20051,7 +19831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 745677832}
-  ai: {fileID: 1239488209}
+  ai: {fileID: 0}
 --- !u!1 &1630257021
 GameObject:
   m_ObjectHideFlags: 0
@@ -20097,7 +19877,6 @@ GameObject:
   - component: {fileID: 1707002285}
   - component: {fileID: 1707002284}
   - component: {fileID: 1707002283}
-  - component: {fileID: 1707002282}
   - component: {fileID: 1707002287}
   m_Layer: 8
   m_Name: Leaf
@@ -20106,34 +19885,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1707002282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707002280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!70 &1707002283
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -20212,7 +19963,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bee302bccf1c1041a151cef5cb3caa3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3400af15ecc0ed2478fd82552c39b058, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -20247,7 +19998,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1707002280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c8762e563f50e4f81ad7fa7e81ede8, type: 3}
+  m_Script: {fileID: 11500000, guid: fb9edb7afbc2015449b6794af281d2c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   patrolPoints:
@@ -20260,15 +20011,16 @@ MonoBehaviour:
   - {fileID: 640719507}
   - {fileID: 2094567094}
   - {fileID: 421078845}
-  speed: 5
+  speed: 6
+  AquamiteRoute: {fileID: 0}
+  AquamiteInstantiatorThing: {fileID: 0}
+  lower_bound_speed: 0
+  upper_bound_speed: 0
   currentPointIndex: 0
   move: 0
   timeToWaitToMove: 0
-  maxPoint: 0
-  followPlayer: 0
-  rb: {fileID: 0}
-  facingRight: 0
   damageIDealToPlayer: 0
+  thisCollider: {fileID: 0}
 --- !u!1001 &1709116844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20363,7 +20115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 66600564}
   nextStop: {fileID: 66600567}
-  ai: {fileID: 2102391631}
+  ai: {fileID: 0}
 --- !u!1001 &1730321132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20458,7 +20210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 2019269488}
   nextStop: {fileID: 2019269489}
-  ai: {fileID: 1239488209}
+  ai: {fileID: 0}
 --- !u!1 &1731338918
 GameObject:
   m_ObjectHideFlags: 0
@@ -20740,7 +20492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 1709116846}
   nextStop: {fileID: 1709116849}
-  ai: {fileID: 2102391631}
+  ai: {fileID: 0}
 --- !u!1 &1810226739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1067548571042890556, guid: b82b76aa44f2d2f408a28f71f75aa0f6, type: 3}
@@ -20755,7 +20507,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1812767745}
-  - component: {fileID: 1812767746}
   - component: {fileID: 1812767747}
   m_Layer: 0
   m_Name: LeafPatrolPoint (1)
@@ -20779,20 +20530,6 @@ Transform:
   m_Father: {fileID: 957946517}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1812767746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1812767744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f126fe88818c2924aa242d42e6b7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ai: {fileID: 1707002287}
-  isFlip: 0
 --- !u!61 &1812767747
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20828,7 +20565,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1857977246}
-  - component: {fileID: 1857977248}
   - component: {fileID: 1857977247}
   m_Layer: 0
   m_Name: LeafPatrolPoint (6)
@@ -20878,20 +20614,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1857977248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857977245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f126fe88818c2924aa242d42e6b7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ai: {fileID: 1707002287}
-  isFlip: 0
 --- !u!1001 &1884112250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20996,7 +20718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 66600564}
-  ai: {fileID: 2102391631}
+  ai: {fileID: 0}
 --- !u!1001 &1900670947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21006,11 +20728,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9150847162570761732, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
       propertyPath: portal_index
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9150847162570761732, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
       propertyPath: next_portal_index
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9150847162570761732, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
       propertyPath: scene_name_to_load
@@ -21022,7 +20744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9150847162570761737, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9150847162570761737, guid: 6363ccbc9ef03814582a13bd8b1ab868, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21160,7 +20882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 685751825}
   nextStop: {fileID: 685751829}
-  ai: {fileID: 1063671088}
+  ai: {fileID: 0}
 --- !u!1 &1949645505
 GameObject:
   m_ObjectHideFlags: 0
@@ -21193,8 +20915,65 @@ Transform:
   - {fileID: 707463147}
   - {fileID: 957946517}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1953273102
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122547, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058627024205122557, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
+      propertyPath: m_Name
+      value: Game_Management_Logs
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92afa0654bb33ed4d94b58a2dcab4d4b, type: 3}
 --- !u!1 &1958050569
 GameObject:
   m_ObjectHideFlags: 0
@@ -21227,7 +21006,7 @@ Transform:
   - {fileID: 2102391636}
   - {fileID: 1884112251}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1982665864
 GameObject:
@@ -21479,7 +21258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 28823993}
   nextStop: {fileID: 28823994}
-  ai: {fileID: 1239488209}
+  ai: {fileID: 0}
 --- !u!1001 &2022864364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21703,7 +21482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTarget: {fileID: 1730321134}
   nextStop: {fileID: 1730321135}
-  ai: {fileID: 1239488209}
+  ai: {fileID: 0}
 --- !u!1 &2094567093
 GameObject:
   m_ObjectHideFlags: 0
@@ -21713,7 +21492,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2094567094}
-  - component: {fileID: 2094567096}
   - component: {fileID: 2094567095}
   m_Layer: 0
   m_Name: LeafPatrolPoint (8)
@@ -21763,20 +21541,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2094567096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094567093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f126fe88818c2924aa242d42e6b7d327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ai: {fileID: 1707002287}
-  isFlip: 1
 --- !u!1 &2102391630
 GameObject:
   m_ObjectHideFlags: 0
@@ -21789,8 +21553,7 @@ GameObject:
   - component: {fileID: 2102391635}
   - component: {fileID: 2102391634}
   - component: {fileID: 2102391633}
-  - component: {fileID: 2102391632}
-  - component: {fileID: 2102391631}
+  - component: {fileID: 2102391637}
   m_Layer: 8
   m_Name: Air
   m_TagString: Untagged
@@ -21798,63 +21561,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2102391631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102391630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b31821f5a0d74e44c9744261921e9c2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  activateDistance: 50
-  pathUpdateSeconds: 0.5
-  speed: 400
-  nextWaypointDistance: 3
-  jumpNodeHeightRequirement: 0.2
-  jumpModifier: 1
-  jumpCheckOffset: 0.1
-  feet: {fileID: 1181847362}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  followEnabled: 0
-  jumpEnabled: 1
-  directionLookEnabled: 1
-  rb: {fileID: 0}
-  ai: {fileID: 0}
---- !u!114 &2102391632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102391630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!70 &2102391633
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -21933,7 +21639,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bee302bccf1c1041a151cef5cb3caa3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c370da31a85efed42a39537e5beeea21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -21961,3 +21667,29 @@ Transform:
   m_Father: {fileID: 1958050570}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2102391637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102391630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9edb7afbc2015449b6794af281d2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints:
+  - {fileID: 66600564}
+  - {fileID: 1807997411}
+  - {fileID: 1709116846}
+  speed: 5
+  AquamiteRoute: {fileID: 0}
+  AquamiteInstantiatorThing: {fileID: 0}
+  lower_bound_speed: 0
+  upper_bound_speed: 0
+  currentPointIndex: 0
+  move: 0
+  timeToWaitToMove: 0
+  damageIDealToPlayer: 0
+  thisCollider: {fileID: 0}

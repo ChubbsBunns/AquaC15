@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class BossWindUpState : BossState
 {
     List<int> attacks = new List<int> { 1, 2, 3 };  //1 for rock throw, 2 for power dash, 3 for ground pound
     List<int> availAttacks = new List<int>();       //This list is to keep track of what attacks havent yet been done for a set of 3 attacks
     float time;
+
+    public Animator bossAnim;
+    
+
+    private void Start() {
+    }
+    
+
     public override void BossEnterState(BossStateMachine boss)
     {
         time = 0;
@@ -22,14 +32,16 @@ public class BossWindUpState : BossState
 
     public override void BossUpdate(BossStateMachine boss)
     {
+        int index = Random.Range(0, availAttacks.Count);
+        Debug.Log("Index is " + index);
         //Attacks after a period of time
         if(time < boss.windUpTime)
-        {
+        {   
             time += Time.deltaTime;
         }
         else
         {
-            Attack(boss);
+            Attack(boss, index);
         }
     }
 
@@ -37,7 +49,7 @@ public class BossWindUpState : BossState
     {
     }
 
-    private void Attack(BossStateMachine boss)
+    private void Attack(BossStateMachine boss, int index)
     {
         //Chooses a random attack out of the 3 but always goes through all 3 attacks before repeating attacks
         if (availAttacks.Count == 0)
@@ -47,7 +59,7 @@ public class BossWindUpState : BossState
                 availAttacks.Add(attacks[i]);
             }
         }
-        int index = Random.Range(0, availAttacks.Count);
+        //int index = Random.Range(0, availAttacks.Count);
         switch (availAttacks[index])
         {
             case 1:

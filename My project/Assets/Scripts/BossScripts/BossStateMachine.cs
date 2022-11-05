@@ -52,8 +52,13 @@ public class BossStateMachine : MonoBehaviour
     public BossPowerDashState bossPowerDashState = new BossPowerDashState();
     public BossGroundPoundState bossGroundPoundState = new BossGroundPoundState();
     public BossIdleState bossIdleState = new BossIdleState();
+
+    //Animation
+    public Animator BossAnim;
+
     private void Start()
     {
+        BossAnim = GetComponent<Animator>();
         fallingRockPositions.Add(fallingRockPositions1);
         fallingRockPositions.Add(fallingRockPositions2);
         fallingRockPositions.Add(fallingRockPositions3);

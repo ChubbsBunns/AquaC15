@@ -33,7 +33,7 @@ public class BossWindUpState : BossState
     public override void BossUpdate(BossStateMachine boss)
     {
         int index = Random.Range(0, availAttacks.Count);
-        Debug.Log("Index is " + index);
+        //Debug.Log("Index is " + index);
         //Attacks after a period of time
         if(time < boss.windUpTime)
         {   

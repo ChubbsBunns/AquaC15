@@ -7,6 +7,8 @@ public class BossPowerDashState : BossState
     float time = 0;
     public override void BossEnterState(BossStateMachine boss)
     {
+        boss.BossAnim.SetBool("Charge", true);
+        Debug.Log("I am charging");
         //Pushes boss towards the player on enter state
         time = 0;
         boss.rb.gravityScale = 0;
@@ -23,8 +25,9 @@ public class BossPowerDashState : BossState
 
     public override void BossUpdate(BossStateMachine boss)
     {
+  
         //On the boss being grounded, returns the boss to chase state
-        if(time < 1)
+        if(time < 2)
         {
             time += Time.deltaTime;
         }
@@ -33,6 +36,7 @@ public class BossPowerDashState : BossState
             boss.rb.gravityScale = 1;
             if(boss.grounded)
             {
+                boss.BossAnim.SetBool("Charge", false);
                 boss.ChangeState(boss.bossChaseState);
             }
         }
@@ -45,7 +49,8 @@ public class BossPowerDashState : BossState
         boss.rb.gravityScale = 1;
         if(boss.grounded)
         {
-            boss.ChangeState(boss.bossChaseState);
+        //    boss.BossAnim.SetBool("Charge", false);
+        //    boss.ChangeState(boss.bossChaseState);
         }
     }
 }

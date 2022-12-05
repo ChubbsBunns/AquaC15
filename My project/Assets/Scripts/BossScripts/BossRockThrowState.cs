@@ -25,7 +25,6 @@ public class BossRockThrowState : BossState
 
     public override void BossUpdate(BossStateMachine boss)
     {
-        Debug.Log("I am rock throw");
         //Moves target image to player and throws a rock after a period
         if(time < timeForRockThrow)
         {

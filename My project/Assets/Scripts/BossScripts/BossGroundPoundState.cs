@@ -37,7 +37,6 @@ public class BossGroundPoundState : BossState
         }
         else
         {
-            Debug.Log("I set ground pound to true");
             GroundPound(boss);
             //boss.BossAnim.SetBool("GroundPound", false);
         }

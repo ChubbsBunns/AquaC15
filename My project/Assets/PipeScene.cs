@@ -25,12 +25,16 @@ public class PipeScene : MonoBehaviour
     public Transform PlacePlayerHere;
 
     public CinemachineVirtualCamera CMVCAM;
+
+    public Animator PipeSceneAnim;
+
     // Start is called before the first frame update
     void Start()
     {
         CMVCAM = FindObjectOfType<CinemachineVirtualCamera>();
         Pipe = FindObjectOfType<Scroller>();
         player = FindObjectOfType<Player_Controller_1>().gameObject;
+        PipeSceneAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,14 +44,13 @@ public class PipeScene : MonoBehaviour
         {
             if (player.transform.position.y - placeToPlacePlayer.position.y <= 0.2f )
             {
-                Debug.Log("not set static liao");
                 Rigidbody2D thing = player.GetComponent<Rigidbody2D>();
                 thing.gravityScale = 0;
                 player.transform.position = new Vector3(placeToPlacePlayer.position.x, player.transform.position.y + lerp*Time.deltaTime, placeToPlacePlayer.position.z);
             }
             else
             {
-                Debug.Log("Set static liao");
+//                Debug.Log("Set static liao");
                
             }
 
@@ -80,6 +83,7 @@ public class PipeScene : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Pipe.startAscending = true;
+            PipeSceneAnim.SetBool("StartCredits", true);
         }
     }
 }

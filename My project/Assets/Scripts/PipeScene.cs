@@ -26,12 +26,15 @@ public class PipeSceneThing : MonoBehaviour
     public Transform PlacePlayerHere;
 
     public CinemachineVirtualCamera CMVCAM;
+
+    public Animator PipeSceneAnim;
     // Start is called before the first frame update
     void Start()
     {
         CMVCAM = FindObjectOfType<CinemachineVirtualCamera>();
         Pipe = FindObjectOfType<Scroller>();
         player = FindObjectOfType<Player_Controller_1>().gameObject;
+        PipeSceneAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -80,9 +83,21 @@ public class PipeSceneThing : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Help");
         if (other.CompareTag("Player"))
         {
             Pipe.startAscending = true;
+            PipeSceneAnim.SetBool("StartCredits", true);
+            Player_Health p_health  =player.GetComponent<Player_Health>();
+            if (p_health == null)
+            {
+                Debug.Log("Player health is not found");
+            }
+            else
+            {
+                Debug.Log("Player health is found");
+            }
+            p_health.SwitchOffHearts();
         }
     }
 }

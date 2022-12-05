@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Health : MonoBehaviour
 {
@@ -16,12 +17,25 @@ public class Player_Health : MonoBehaviour
     [SerializeField] Sprite damagedHeart;
     [SerializeField] GameObject heartsUIParent;     //The parent of the heart images, use of horizontal layout group for equal spacing
 
-    List<Image> heartImages = new List<Image>();    
+    [Header("Player Sprite Variables")]
+    [SerializeField] Material defaultMaterial;
+    [SerializeField] Material flashRedMaterial;
+    [SerializeField] float timeFlashRed;
+    [SerializeField] float immunityOpacity;
+
+    Color color;
+    List<Image> heartImages = new List<Image>();
+    SpriteRenderer playerSpriteRenderer;
     int currentHeartIndex;                          //The currently healthy heart that is to be damaged next
     bool hitImmunity = false;                       //Disables taking damage after recently taking damage
     private void Start()
     {
-        //Spawn hearts and 
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        Material newMaterial = new Material(defaultMaterial);
+        playerSpriteRenderer.material = newMaterial;
+        defaultMaterial = newMaterial;
+        color = defaultMaterial.color;
+        //Spawn hearts
         for(int i = 0; i < hearts; ++i)
         {
             GameObject newHeart = new GameObject("Heart" + i.ToString());
@@ -45,11 +59,11 @@ public class Player_Health : MonoBehaviour
         {
             //Respawn
             //Reset player position and stuff
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             RestoreHearts(100);
             return;
         }
-        hitImmunity = true;
-        Invoke(nameof(StopImmunity), hitImmunityTime);
+        StartCoroutine(FlashRed());
     }
 
     //Called when respawning to restore all the hearts
@@ -62,11 +76,20 @@ public class Player_Health : MonoBehaviour
         }
     }
 
-    //To be called after a time using Invoke to disable hit immunity
-    void StopImmunity()
+    IEnumerator FlashRed()
     {
+        hitImmunity = true;
+        playerSpriteRenderer.material = flashRedMaterial;
+        yield return new WaitForSeconds(timeFlashRed);
+        playerSpriteRenderer.material = defaultMaterial;
+        color.a = immunityOpacity;
+        defaultMaterial.color = color;
+        yield return new WaitForSeconds(hitImmunityTime);
+        color.a = 1;
+        defaultMaterial.color = color;
         hitImmunity = false;
     }
+
 
 
 }

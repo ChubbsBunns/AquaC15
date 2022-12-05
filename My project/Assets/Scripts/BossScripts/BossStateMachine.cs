@@ -32,6 +32,7 @@ public class BossStateMachine : MonoBehaviour
 
     [Header("Power Dash Variables")]
     public float powerDashSpeed;
+    public float powerDashWaitTime;
 
     [Header("Ground Pound Variables")]
     public FallingRock fallingRockPrefab;
@@ -52,8 +53,16 @@ public class BossStateMachine : MonoBehaviour
     public BossPowerDashState bossPowerDashState = new BossPowerDashState();
     public BossGroundPoundState bossGroundPoundState = new BossGroundPoundState();
     public BossIdleState bossIdleState = new BossIdleState();
+
+    //check whether the boss is dead
+    public bool Dead = false;
+
+    //Animation
+    public Animator BossAnim;
+
     private void Start()
     {
+        BossAnim = GetComponent<Animator>();
         fallingRockPositions.Add(fallingRockPositions1);
         fallingRockPositions.Add(fallingRockPositions2);
         fallingRockPositions.Add(fallingRockPositions3);
@@ -100,11 +109,16 @@ public class BossStateMachine : MonoBehaviour
         //Do something like shake the screen
     }
 
+    public void ShakeCamera()
+    {
+        CinemachineCameraShake.instance.ShakeCamera(cameraShakeIntensity, cameraShakeDuration);
+    }
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         currentState.BossCollision(this, collision);
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") && Dead != true)
         {
             playerHealth.TakeDamage();
         }

@@ -28,6 +28,8 @@ public class BossRockThrowState : BossState
         //Moves target image to player and throws a rock after a period
         if(time < timeForRockThrow)
         {
+            boss.BossAnim.SetBool("RockThrow", false);
+            boss.BossAnim.SetBool("RockThrowPrep", true);
             time += Time.deltaTime;
             boss.targetImage.transform.position = Vector2.Lerp(boss.targetImage.transform.position, boss.player.position, time / timeForRockThrow);
         }
@@ -45,12 +47,16 @@ public class BossRockThrowState : BossState
     void ThrowRock(BossStateMachine boss)
     {
         //Decreases time for next throw and increases count of rocks thrown this attack
-        boss.ThrowRock();
+        boss.BossAnim.SetBool("RockThrow", true);
+        boss.ThrowRock();    
         timeForRockThrow -= boss.timeDecrementBetweenThrows;
         ++count;
         if(count == boss.numRocksPerAttack)
         {
+            boss.BossAnim.SetBool("RockThrowPrep", false);
+            boss.BossAnim.SetBool("RockThrow", false);
             boss.ChangeState(boss.bossChaseState);
         }
+        //boss.BossAnim.SetBool("RockThrow", false);
     }
 }

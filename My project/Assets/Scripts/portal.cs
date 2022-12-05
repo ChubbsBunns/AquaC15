@@ -22,6 +22,7 @@ public class portal : MonoBehaviour
 
     [Header ("Miscellaneous")]
     [SerializeField] private bool DoIDeletePlayer = false;
+    [SerializeField] bool babyNuScene = false;
 
     private void Awake()
     {
@@ -40,6 +41,12 @@ public class portal : MonoBehaviour
                 Debug.Log("Game Management Log is found");
             }
             Player_Controller_1 playerObject = FindObjectOfType<Player_Controller_1>();
+            if (babyNuScene)
+            {
+                Baby_Nu_Controller playerAlso = FindObjectOfType<Baby_Nu_Controller>();
+                playerAlso.TransformChangeMoveMeHere(transform_portal.transform);
+            }
+
             if (playerObject == null)
             {
                 Debug.Log("Portal does not instantiate player");

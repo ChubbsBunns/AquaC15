@@ -1741,7 +1741,7 @@ Transform:
   - {fileID: 1377295620}
   - {fileID: 1359584047}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1551561942 stripped
 Transform:
@@ -8217,7 +8217,7 @@ PrefabInstance:
       objectReference: {fileID: 935972829}
     - target: {fileID: 7324294897711107756, guid: c04d08823b500a943b04fbda895852cc, type: 3}
       propertyPath: m_Name
-      value: SpeakerManager
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c04d08823b500a943b04fbda895852cc, type: 3}

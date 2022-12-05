@@ -24,13 +24,18 @@ public class BossHealth : Enemy_Health
     {
         healthBarObject.SetActive(false);
     }
-    public override void Enemy_Take_Damage(int player_damage)
+    public override void Enemy_Take_Damage(int player_damage/*, BossStateMachine boss*/)
     {
         enemy_health -= player_damage;
+        //boss.BossAnim.SetBool("Death", true);
+        
         //Update some UI
         healthSlider.value = enemy_health;
         if(enemy_health <= 0)
         {
+            bossStateMachine.BossAnim.SetBool("Death", true);
+            bossStateMachine.Dead = true;
+            Debug.Log("I am called");
             bossStateMachine.ChangeState(bossStateMachine.bossIdleState);
         }
     }

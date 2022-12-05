@@ -30,6 +30,8 @@ public class Ground_Enemy_AI : MonoBehaviour
     Seeker seeker;
     public Rigidbody2D rb;
 
+    public GameObject Sprites;
+
     [SerializeField] Queue<Transform> targets = new Queue<Transform>();
     public Ground_Enemy_AI ai;
     private bool caught = false;
@@ -73,6 +75,7 @@ public class Ground_Enemy_AI : MonoBehaviour
         if (faceLeft)
         {
             // transform.Rotate(0f, 180f, 0f);
+            Sprites.transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             facingLeft = true;
         }
@@ -80,6 +83,7 @@ public class Ground_Enemy_AI : MonoBehaviour
         {
             // transform.Rotate(0f, 180f, 0f);
             facingLeft = false;
+            Sprites.transform.localScale = new Vector3(-1f *Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
     }
@@ -190,10 +194,11 @@ public class Ground_Enemy_AI : MonoBehaviour
         target = FollowThis;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player"))
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
-            Player_Health player_health = other.GetComponent<Player_Health>();
+            Player_Health player_health = other.gameObject.GetComponent<Player_Health>();
             player_health.TakeDamage();
         }
     }

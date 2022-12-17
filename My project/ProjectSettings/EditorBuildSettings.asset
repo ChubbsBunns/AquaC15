@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4 Nu's Room.unity
     guid: d982c590ef90dd449ac2cb330812792b
+  - enabled: 1
+    path: Assets/Scenes/IceMountain.unity
+    guid: ae2f06fa41effed47bf78ef942537398
   m_configObjects: {}

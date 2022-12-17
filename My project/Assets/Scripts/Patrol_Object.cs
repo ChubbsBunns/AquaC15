@@ -85,10 +85,10 @@ public class Patrol_Object : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) 
     {
 //        Debug.Log(other);
-        if (other.gameObject.CompareTag("AquaMites"))
+        if (other.gameObject.CompareTag("PlayerBlockerCollider") || other.gameObject.CompareTag("PlayerCollider"))
         {
-            Collider2D AquaMiteCollider2D = other.gameObject.GetComponent<Collider2D>();
-            Physics2D.IgnoreCollision(AquaMiteCollider2D, thisCollider);
-        }    
+            Collider2D ColliderToIgnore = other.gameObject.GetComponent<Collider2D>();
+            Physics2D.IgnoreCollision(ColliderToIgnore, thisCollider);
+        }
     }
 }

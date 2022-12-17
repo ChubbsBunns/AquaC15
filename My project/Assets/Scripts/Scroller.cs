@@ -24,9 +24,7 @@ public class Scroller : MonoBehaviour
         if (startAscending)
         {
             offset += (Time.deltaTime * Speed);
-            Debug.Log(offset);
             mat.SetTextureOffset("_MainTex", new Vector2(0, offset));
-            Debug.Log(mat.GetTextureOffset("_MainTex"));
         }
     }
 }

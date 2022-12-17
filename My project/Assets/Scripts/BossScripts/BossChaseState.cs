@@ -22,11 +22,13 @@ public class BossChaseState : BossState
         {
             //Boss towards the right
             boss.rb.velocity = new Vector2(-boss.bossSpeed, 0);
+            boss.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else
         {
             //Boss towards the left
             boss.rb.velocity = new Vector2(boss.bossSpeed, 0);
+            boss.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         //Likely here access some animator to change the bosses animation duh.
     }

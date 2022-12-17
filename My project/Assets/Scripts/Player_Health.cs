@@ -47,10 +47,20 @@ public class Player_Health : MonoBehaviour
         currentHeartIndex = hearts - 1;
     }
 
+    public void SwitchOffHearts()
+    {
+        heartsUIParent.SetActive(false);
+    }
+
+    public void SwitchOnHearts()
+    {
+        heartsUIParent.SetActive(true);
+    }
     //Called by whatever damages the player
     //Removes one heart and starts hit immunity
     public void TakeDamage()
     {
+        Debug.Log("This is called");
         if(currentHeartIndex < 0 || hitImmunity) { return; }
         CinemachineCameraShake.instance.ShakeCamera(onHitShakeIntensity, onHitShakeDuration);
         heartImages[currentHeartIndex].sprite = damagedHeart;
@@ -89,7 +99,4 @@ public class Player_Health : MonoBehaviour
         defaultMaterial.color = color;
         hitImmunity = false;
     }
-
-
-
 }

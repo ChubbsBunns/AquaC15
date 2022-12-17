@@ -28,14 +28,17 @@ public class BossGroundPoundState : BossState
 
     public override void BossUpdate(BossStateMachine boss)
     {
+//        Debug.Log("I am ground pound");
         //Pound the ground after a period
         if(time < boss.timeBetweenGroundPounds)
         {
+            boss.BossAnim.SetBool("GroundPoundPrep", true);
             time += Time.deltaTime;
         }
         else
         {
             GroundPound(boss);
+            //boss.BossAnim.SetBool("GroundPound", false);
         }
     }
 
@@ -43,9 +46,12 @@ public class BossGroundPoundState : BossState
     void GroundPound(BossStateMachine boss)
     {
         time = 0;
+        boss.BossAnim.SetBool("GroundPound", true);
         ++count;
         if(count >= boss.numberOfGroundPounds)
-        {
+        {                
+            boss.BossAnim.SetBool("GroundPound", false);
+            boss.BossAnim.SetBool("GroundPoundPrep", false);
             boss.ChangeState(boss.bossChaseState);
         }
         boss.GroundPound(count);

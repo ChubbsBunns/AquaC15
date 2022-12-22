@@ -60,7 +60,6 @@ public class Player_Health : MonoBehaviour
     //Removes one heart and starts hit immunity
     public void TakeDamage()
     {
-        Debug.Log("This is called");
         if(currentHeartIndex < 0 || hitImmunity) { return; }
         CinemachineCameraShake.instance.ShakeCamera(onHitShakeIntensity, onHitShakeDuration);
         heartImages[currentHeartIndex].sprite = damagedHeart;

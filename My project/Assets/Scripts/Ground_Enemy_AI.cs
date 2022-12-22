@@ -24,6 +24,8 @@ public class Ground_Enemy_AI : MonoBehaviour
     public bool jumpEnabled = true;
     public bool directionLookEnabled = true;
 
+    public int GroundLayerMaskIndex = 6;
+
     private Path path;
     private int currentWaypoint = 0;
     bool isGrounded = false;
@@ -36,8 +38,15 @@ public class Ground_Enemy_AI : MonoBehaviour
     public Ground_Enemy_AI ai;
     private bool caught = false;
     public bool facingLeft = true;
+
+    public bool blockedInFront = false;
+    public float blockFrontCheckOffset = 1.5f;
+    public float blockFrontCheckDistance = 13f;
+    public Animator anim;
+
     public void Start()
     {
+        anim = GetComponent<Animator>();
         if (target == null)
         {
             target = FindObjectOfType<Player_Controller_1>().transform;
@@ -50,10 +59,60 @@ public class Ground_Enemy_AI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        CheckFront();
         if(TargetInDistance() && followEnabled && target != null)
         {
+            anim.SetBool("Follow", true);
             PathFollow();
         }
+        else
+        {
+            anim.SetBool("Follow" ,false);
+        }
+    }
+
+    private void CheckFront()
+    {
+        //used to check if there is something in front blocking the enemy from reaching the player
+        if (facingLeft)
+        {
+            Vector2 checkInitialPosition = new Vector2 (transform.position.x - blockFrontCheckOffset, transform.position.y);
+            RaycastHit2D hit = Physics2D.Raycast(checkInitialPosition, Vector2.left, blockFrontCheckDistance);
+            Debug.Log("I am facing left");
+            if (hit)
+            {
+                Debug.Log("I have hit something while facing left");
+                blockedInFront = true;
+            }
+            else
+            {
+                                Debug.Log("I have failed to hit something while facing left");
+                blockedInFront = false;
+            }
+        }
+        else
+        {
+            Vector2 checkInitialPosition = new Vector2 (transform.position.x + blockFrontCheckOffset, transform.position.y);
+            RaycastHit2D hit = Physics2D.Raycast(checkInitialPosition, Vector2.right, blockFrontCheckDistance);
+            Debug.Log("I am facing right");
+            if (hit)
+            {
+                                Debug.Log("I have hit something while facing right");
+                blockedInFront = true;
+            }
+            else
+            {
+                                Debug.Log("I have failed to hit something while facing right");
+                blockedInFront = false;
+            }
+        }
+
+    }
+
+    private void OnDrawGizmos() {
+        Vector2 checkInitialPosition = new Vector2 (transform.position.x + blockFrontCheckOffset, transform.position.y);
+        Gizmos.DrawRay(checkInitialPosition, Vector2.right);
+        Gizmos.DrawRay(checkInitialPosition, Vector2.left);
     }
 
     private void UpdatePath()
@@ -67,6 +126,7 @@ public class Ground_Enemy_AI : MonoBehaviour
 
     public void Jump()
     {
+        anim.Play("jump");
         rb.AddForce(Vector2.up * speed * jumpModifier);
     }
 
@@ -128,6 +188,10 @@ public class Ground_Enemy_AI : MonoBehaviour
         targets.Clear();
     }
 
+    private void JumpAnimEnded()
+    {
+        anim.SetBool("Jump", false);
+    }
     private void PathFollow()
     {
         if(path == null)
@@ -151,9 +215,9 @@ public class Ground_Enemy_AI : MonoBehaviour
         Vector2 force = direction * speed * Time.deltaTime;
 
         //Jump
-        if(jumpEnabled && isGrounded)
+        if(jumpEnabled && isGrounded )
         {
-            if(direction.y > jumpNodeHeightRequirement)
+            if((direction.y > jumpNodeHeightRequirement && followEnabled) || (followEnabled && blockedInFront))
             {
                 Jump();
             }

@@ -950,6 +950,8 @@ GameObject:
   - component: {fileID: 714608890565675775}
   - component: {fileID: 714608890565675774}
   - component: {fileID: 714608890565675769}
+  - component: {fileID: 720052388}
+  - component: {fileID: 720052394}
   m_Layer: 7
   m_Name: Dog (3)
   m_TagString: Enemy
@@ -1123,6 +1125,43 @@ MonoBehaviour:
   Sprites: {fileID: 789742740}
   ai: {fileID: 0}
   facingLeft: 1
+  anim: {fileID: 0}
+--- !u!95 &720052388
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714608890565675771}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d895207c7294584489322474f901b5e9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &720052394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714608890565675771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537fa6f5da8e7854b8b51d47a1e07cd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_health: 1
+  death_effect: {fileID: 3284379612947894880, guid: 27b5d6d14ca69ce49a3d17201921e794, type: 3}
+  quest: {fileID: 0}
+  ParentIfAny: {fileID: 0}
 --- !u!1 &2990545468781525173
 GameObject:
   m_ObjectHideFlags: 0

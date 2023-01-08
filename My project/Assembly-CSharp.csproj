@@ -45,6 +45,7 @@
      <Compile Include="Assets\Scripts\AquamiteInstantiator.cs" />
      <Compile Include="Assets\Scripts\QuestWindow.cs" />
      <Compile Include="Assets\Scripts\QuestGiver.cs" />
+     <Compile Include="Assets\animatorStarRandomizer.cs" />
      <Compile Include="Assets\Scripts\Friend_AI.cs" />
      <Compile Include="Assets\Scripts\BossScripts\BossTriggerPoint.cs" />
      <Compile Include="Assets\Scripts\BossScripts\BossHealth.cs" />

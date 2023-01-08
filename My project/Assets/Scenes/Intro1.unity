@@ -957,7 +957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &899542988
 Grid:
   m_ObjectHideFlags: 0
@@ -1331,7 +1331,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9053258530626650665, guid: 07657aaabba762d46ac03bab65f569f5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9053258530626650665, guid: 07657aaabba762d46ac03bab65f569f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2375,7 +2375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4120346493636896828, guid: ccf453373eccda44d8633c21c243bba6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4120346493636896828, guid: ccf453373eccda44d8633c21c243bba6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3494,6 +3494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2914403227247687040, guid: 3b6cd55b80e4d6e48840d929654cc4e3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2914403227247687044, guid: 3b6cd55b80e4d6e48840d929654cc4e3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3589,7 +3593,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1372044377049088640, guid: 733cff1a7b018db498cd9df6126bd0d3, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1372044377049088640, guid: 733cff1a7b018db498cd9df6126bd0d3, type: 3}
       propertyPath: m_LocalPosition.x

@@ -34,9 +34,9 @@ public class Patrol_Object : MonoBehaviour
         speed = Random.Range(lower_bound_speed, upper_bound_speed);
         AquamiteInstantiatorThing = FindObjectOfType<AquamiteInstantiator>();
         AquamiteRoute = FindObjectOfType<AquaMiteWorkerRoute>();
-        //patrolPoints = new Transform[AquamiteRoute.points.Length + 2];
+        patrolPoints = new Transform[AquamiteRoute.points.Length + 2];
         
-        //Debug.Log("AquamiteInstantiatorThing.transform.position" + AquamiteInstantiatorThing.transform.position.x + AquamiteInstantiatorThing.transform.position.y);
+        Debug.Log("AquamiteInstantiatorThing.transform.position" + AquamiteInstantiatorThing.transform.position.x + AquamiteInstantiatorThing.transform.position.y);
         GetPoints();
         patrolPoints[0].position = AquamiteInstantiatorThing.transform.position;
         if (AquamiteRoute)
@@ -70,7 +70,7 @@ public class Patrol_Object : MonoBehaviour
                 }
                 else
                 {
-                    currentPointIndex = patrolPoints.Length - 1;
+                    currentPointIndex = 0;
                 }
             }
         }

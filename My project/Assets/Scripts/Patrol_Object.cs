@@ -36,7 +36,7 @@ public class Patrol_Object : MonoBehaviour
         AquamiteRoute = FindObjectOfType<AquaMiteWorkerRoute>();
         patrolPoints = new Transform[AquamiteRoute.points.Length + 2];
         
-        Debug.Log("AquamiteInstantiatorThing.transform.position" + AquamiteInstantiatorThing.transform.position.x + AquamiteInstantiatorThing.transform.position.y);
+        //Debug.Log("AquamiteInstantiatorThing.transform.position" + AquamiteInstantiatorThing.transform.position.x + AquamiteInstantiatorThing.transform.position.y);
         GetPoints();
         patrolPoints[0].position = AquamiteInstantiatorThing.transform.position;
         if (AquamiteRoute)

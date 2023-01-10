@@ -240,7 +240,7 @@ MonoBehaviour:
   check_radius: 0.1
   what_is_ground:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 4049
   stop_jump_fast_speed: 1
   max_number_of_jumps: 1
   steps_jumped: 0
@@ -315,6 +315,10 @@ MonoBehaviour:
   healthyHeart: {fileID: 21300000, guid: 759321682aae4a940a4f72ff85450ec4, type: 3}
   damagedHeart: {fileID: 21300000, guid: df3ca2e6ef2707f45b652db86c9b078d, type: 3}
   heartsUIParent: {fileID: 6081481649981149898}
+  defaultMaterial: {fileID: 0}
+  flashRedMaterial: {fileID: 0}
+  timeFlashRed: 0
+  immunityOpacity: 0
 --- !u!212 &6081481648836462910
 SpriteRenderer:
   m_ObjectHideFlags: 0

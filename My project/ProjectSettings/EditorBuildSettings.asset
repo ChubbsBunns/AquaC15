@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 4329f7ec400771942be47b028fc912b9
   - enabled: 1
@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IceMountain.unity
     guid: ae2f06fa41effed47bf78ef942537398
+  - enabled: 1
+    path: Assets/Scenes/0 IntroCutscene.unity
+    guid: 13e8c5f1084a5564296b2fef2fc953a1
   m_configObjects: {}

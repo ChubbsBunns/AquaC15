@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Cinemachine_Editor.cs" />
      <Compile Include="Assets\Scripts\Pickup.cs" />
      <Compile Include="Assets\Scripts\CutSceneManager.cs" />
+     <Compile Include="Assets\CutSceneSpeaker.cs" />
      <Compile Include="Assets\Scripts\AquaHouse.cs" />
      <Compile Include="Assets\Scripts\BossScripts\BossGroundPoundState.cs" />
      <Compile Include="Assets\Scripts\Ground_Enemy_AI.cs" />
@@ -82,6 +83,7 @@
      <Compile Include="Assets\Scripts\Scroller.cs" />
      <Compile Include="Assets\Scripts\MineableObject.cs" />
      <Compile Include="Assets\ImpactDestroy.cs" />
+     <Compile Include="Assets\LeafMiteIntro.cs" />
      <Compile Include="Assets\Scripts\Ground_Enemy_AI_Jump.cs" />
      <Compile Include="Assets\Scripts\AI_Stop.cs" />
      <Compile Include="Assets\Scripts\AIJump.cs" />
@@ -97,11 +99,13 @@
      <Compile Include="Assets\Scripts\BossScripts\Rock.cs" />
      <Compile Include="Assets\Scripts\portal.cs" />
      <Compile Include="Assets\Scripts\Player_Health.cs" />
+     <Compile Include="Assets\Utlity\AdvancedPolygonCollider\Script\AdvancedPolygonCollider.cs" />
      <Compile Include="Assets\Scripts\BringSomeLightning.cs" />
      <Compile Include="Assets\Scripts\MoneyCanvas.cs" />
      <Compile Include="Assets\Scripts\Flying_AI_Trigger.cs" />
      <Compile Include="Assets\Scripts\Enemy_Health.cs" />
      <Compile Include="Assets\Scripts\AquaMiteWorkerRoute.cs" />
+     <Compile Include="Assets\Utlity\AdvancedPolygonCollider\Script\AdvancedPolygonColliderUtilities.cs" />
      <Compile Include="Assets\Scripts\Flying_Enemy_GFX.cs" />
      <Compile Include="Assets\Scripts\Flying_AI_Flip.cs" />
      <Compile Include="Assets\Scripts\BossScripts\BossState.cs" />
@@ -110,11 +114,9 @@
      <Compile Include="Assets\Laser.cs" />
      <Compile Include="Assets\Scripts\BossScripts\FallingRock.cs" />
      <Compile Include="Assets\Scripts\Player_Sword.cs" />
+     <Compile Include="Assets\GenerateSparks.cs" />
      <Compile Include="Assets\Scripts\Sword.cs" />
      <Compile Include="Assets\Scripts\Intro_Trigger_Point.cs" />
-     <Compile Include="Assets\Utlity\AdvancedPolygonCollider\Script\AdvancedPolygonCollider.cs" />
-     <Compile Include="Assets\Utlity\AdvancedPolygonCollider\Script\AdvancedPolygonColliderUtilities.cs" />
-     <Compile Include="Assets\GenerateSparks.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

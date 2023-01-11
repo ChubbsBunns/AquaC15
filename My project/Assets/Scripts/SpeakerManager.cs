@@ -33,6 +33,7 @@ public class SpeakerManager : MonoBehaviour
 
     public void Speak(int textNo)
     {
+        Debug.Log("Allow speak is " + allowSpeak);
         if (!allowSpeak) { return; }
         text.text = texts[textNo].Replace(';','\n');
         canvas.enabled = true;

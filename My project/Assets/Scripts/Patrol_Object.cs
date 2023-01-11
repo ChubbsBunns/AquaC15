@@ -23,10 +23,13 @@ public class Patrol_Object : MonoBehaviour
 
     SpriteRenderer sr;
 
+    [SerializeField] private GameObject brightSpark;
+    [SerializeField] private Transform placeToDropBrightSparks;
+    public Animator animHelicopter;
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-
+        animHelicopter = GetComponent<Animator>();
         int orderInLayer = (int)Random.Range(0.0f,5.0f);
 
         sr.sortingOrder = orderInLayer ;
@@ -91,4 +94,18 @@ public class Patrol_Object : MonoBehaviour
             Physics2D.IgnoreCollision(ColliderToIgnore, thisCollider);
         }
     }
+
+    public void animChange(int i)
+    {
+        if (i == 1)
+        {
+            animHelicopter.SetBool("FlyToLeft",true);
+        }
+        else
+        {
+            animHelicopter.SetBool("FlyToLeft", false);
+        }
+    }
+
+
 }

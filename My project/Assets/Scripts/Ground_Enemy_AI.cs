@@ -24,6 +24,7 @@ public class Ground_Enemy_AI : MonoBehaviour
     public bool jumpEnabled = true;
     public bool directionLookEnabled = true;
 
+    public bool alwaysFollowUponAlert = false;
     public int GroundLayerMaskIndex = 6;
 
     private Path path;

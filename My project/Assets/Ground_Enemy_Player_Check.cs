@@ -21,7 +21,7 @@ public class Ground_Enemy_Player_Check : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D other) {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && grnd_Enemy.alwaysFollowUponAlert == false)
         {
             grnd_Enemy.followEnabled = false;
         }

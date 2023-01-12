@@ -72036,7 +72036,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 92ab09e986419ed4b949341f04f3446c, type: 3}
   m_Color: {r: 1, g: 0.6273585, b: 0.6273585, a: 1}
   m_FlipX: 0
@@ -72444,7 +72444,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: e7d5facb51f59194f8aa22e6ac91b98a, type: 3}
   m_Color: {r: 1, g: 0.6273585, b: 0.6273585, a: 1}
   m_FlipX: 0
@@ -73099,6 +73099,7 @@ MonoBehaviour:
   followEnabled: 0
   jumpEnabled: 1
   directionLookEnabled: 1
+  alwaysFollowUponAlert: 0
   GroundLayerMaskIndex: 6
   rb: {fileID: 0}
   Sprites: {fileID: 0}
@@ -76269,12 +76270,14 @@ MonoBehaviour:
   rockmite: {fileID: 407238181}
   aquamite: {fileID: 1543154421}
   airmite: {fileID: 251829929}
+  brightSparkContainer: {fileID: 1738349764}
   thingsToLookAt:
   - {fileID: 1707002280}
   - {fileID: 1040848128}
   - {fileID: 1832842917}
   - {fileID: 1543154421}
   - {fileID: 251829929}
+  - {fileID: 1738349764}
   currCmvcam: {fileID: 1102903501}
   spkrMng: {fileID: 0}
 --- !u!95 &1588021792
@@ -76316,8 +76319,11 @@ MonoBehaviour:
   - The Embermites, always able to do things at lightning speeds
   - The Rockmites, their strength was unparalleled
   - The Aquamites, where I come from,  always keeping things in order
-  - And last but not least, the Airmites, the smartest of us all, little did they
-    know what was going to happen to them
+  - And last but not least, the Airmites, the smartest of us all, they were the ones
+    who created our processes of harvesting our world's resources
+  - BrightSpark
+  - But despite their smarts, they wouldnt be able to foresee what was going to happen
+    to them
   - We all were peaceful until...
   text: {fileID: 2095500517}
   timeBeforeRemove: 6
@@ -79867,13 +79873,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2914403227896239114, guid: 3b6cd55b80e4d6e48840d929654cc4e3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fe928646562b23647ac182414a5f4831, type: 3}
     - target: {fileID: 2914403227896239125, guid: 3b6cd55b80e4d6e48840d929654cc4e3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -635
       objectReference: {fileID: 0}
     - target: {fileID: 2914403227896239125, guid: 3b6cd55b80e4d6e48840d929654cc4e3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -364
+      value: -347
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b6cd55b80e4d6e48840d929654cc4e3, type: 3}
@@ -80149,6 +80159,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2070386911}
     m_Modifications:
+    - target: {fileID: 3779764567541932106, guid: 7869748817f279d4e97646ad1f406ec6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3779764568194873369, guid: 7869748817f279d4e97646ad1f406ec6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -80206,6 +80220,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2070386911}
     m_Modifications:
+    - target: {fileID: 4058521085721563227, guid: 56a608b4783cbe84b960efdac8ee4364, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4058521086880434184, guid: 56a608b4783cbe84b960efdac8ee4364, type: 3}
       propertyPath: m_RootOrder
       value: 0

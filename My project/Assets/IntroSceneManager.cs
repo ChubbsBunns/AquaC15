@@ -12,6 +12,7 @@ public class IntroSceneManager : MonoBehaviour
 
     public GameObject aquamite;
     public GameObject airmite;
+    public GameObject brightSparkContainer;
     
     public GameObject[] thingsToLookAt;
 
@@ -29,6 +30,7 @@ public class IntroSceneManager : MonoBehaviour
         thingsToLookAt[2] = rockmite;
         thingsToLookAt[3] = aquamite;
         thingsToLookAt[4] = airmite;
+        thingsToLookAt[5] = brightSparkContainer;
         player = FindObjectOfType<Baby_Nu_Controller>();
     }
     void followTarget(int which)
@@ -56,6 +58,6 @@ public class IntroSceneManager : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        spkrMng.Speak(6);
+        spkrMng.Speak(spkrMng.texts.Length - 1);
     }
 }

@@ -188,6 +188,7 @@ public class Player_Controller_1 : MonoBehaviour
         if (player_is_controllable != true)
         {
             horizontal_Input = 0;
+            
         }
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || is_running || is_jumping || is_dashing )
         {
